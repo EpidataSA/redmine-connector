@@ -11,7 +11,7 @@ import org.mule.modules.redmine.strategy.ConnectorConnectionStrategy;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-30T04:57:42-03:00", comments = "Build UNNAMED.2405.44720b7")
+@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-31T05:12:25-03:00", comments = "Build UNNAMED.2405.44720b7")
 public class RedmineConnectorConnectorConnectionStrategyBasicAdapter
     extends RedmineConnectorProcessAdapter
 {
