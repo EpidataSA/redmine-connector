@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/redmine" prefix="redmine">
+  <global-cloud-***REMOVED*** versions="[3.5.0,8.0.0]" caption="Redmine" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric"></global-cloud-***REMOVED***>
+  <global-cloud-***REMOVED*** versions="[3.5.0,8.0.0]" caption="Redmine: Configuration type strategy" description="Global Configuration type strategy configuration information. Configuration type Strategy." icon="icons/small/redmine-***REMOVED***-24x16.png" localId="config-type" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/redmine/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME">
+    <attribute-category caption="General" description="Redmine configuration properties.">
+      <group id="redmineGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Configurable." required="false" javaType="java.lang.String"></string>
+        <string defaultValue="How are you?" name="replay" caption="Replay" description="Configurable." required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-***REMOVED***>
+  <cloud-***REMOVED*** caption="Abstractredmine***REMOVED***generic" description="Interact with Redmine." icon="icons/small/redmine-***REMOVED***-24x16.png" localId="abstractRedmineConnectorGeneric" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractRedmineConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/redmine/config-type" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.redmine" caption="Redmine" description="Anypoint Connector." icon="icons/small/redmine-***REMOVED***-24x16.png" localId="redmine-***REMOVED***" image="icons/large/redmine-***REMOVED***-48x32.png" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="redmineConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Redmine operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" versions="[3.5.0,8.0.0]" ***REMOVED***-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/greet" modeLabel="Greet"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="java.lang.String" caption="Greet" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="greet" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="friend" caption="Friend" description="Content to be processed." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-***REMOVED***>
+</namespace>
