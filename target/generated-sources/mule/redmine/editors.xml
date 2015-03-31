@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/redmine" prefix="redmine">
-  <global-cloud-***REMOVED*** versions="[3.5.0,8.0.0]" caption="Redmine" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric"></global-cloud-***REMOVED***>
-  <global-cloud-***REMOVED*** versions="[3.5.0,8.0.0]" caption="Redmine: Configuration type strategy" description="Global Configuration type strategy configuration information. Configuration type Strategy." icon="icons/small/redmine-***REMOVED***-24x16.png" localId="config-type" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/redmine/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME">
+  <global-cloud-***REMOVED*** versions="[3.6.0,8.0.0]" caption="Redmine" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric"></global-cloud-***REMOVED***>
+  <nested caption="" description="" localId="connection-pooling-profile" abstract="true">
+    <radioBoolean name="defaultPoolingProfile" caption="Use default connection pool configuration" description="Use default connection pool configuration." fillLine="true"></radioBoolean>
+    <radioBoolean name="customPoolingProfile" caption="Define connection pool configuration" description="Define connection pool configuration." fillLine="true"></radioBoolean>
+    <integer defaultValue="5" min="-1" step="0" name="maxActive" caption="Max active" description="Controls the maximum number of connections that can be borrowed from the pool at one time. When set to a negative value, there is no limit to the number of connections that may be active at one time. When maxActive is exceeded, the pool is said to be exhausted." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+    <integer defaultValue="5" min="-1" step="0" name="maxIdle" caption="Max idle" description="Controls the maximum number of connections that can sit idle in the pool at any time. When set to a negative value, there is no limit to the number of connections that may be idle at one time." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+    <enum defaultValue="INITIALISE_ONE" name="initialisationPolicy" caption="Initialisation policy" description="Determines how connections in a pool should be initialized. The possible values are: INITIALISE_NONE (will not load any connection into the pool on startup), INITIALISE_ONE (will load one initial connection into the pool on startup), or INITIALISE_ALL (will load all connections in the pool on startup)" alwaysFill="true" controlled="customPoolingProfile" indented="true">
+      <option value="INITIALISE_NONE"></option>
+      <option value="INITIALISE_ONE"></option>
+      <option value="INITIALISE_ALL"></option>
+    </enum>
+    <enum defaultValue="WHEN_EXHAUSTED_GROW" name="exhaustedAction" caption="Exhausted action" description="Specifies the behavior of the connection pool when the pool is exhausted. Possible values are: &quot;WHEN_EXHAUSTED_FAIL&quot;, which will throw a NoSuchElementException, &quot;WHEN_EXHAUSTED_WAIT&quot;, which will block by invoking Object.wait(long) until a new or idle object is available, or WHEN_EXHAUSTED_GROW, which will create a new connection and return it, essentially making maxActive meaningless. If a positive maxWait value is supplied, it will block for at most that many milliseconds, after which a NoSuchElementException will be thrown. If maxThreadWait is a negative value, it will block indefinitely." alwaysFill="true" controlled="customPoolingProfile" indented="true">
+      <option value="WHEN_EXHAUSTED_WAIT"></option>
+      <option value="WHEN_EXHAUSTED_FAIL"></option>
+      <option value="WHEN_EXHAUSTED_GROW"></option>
+    </enum>
+    <integer defaultValue="5" min="-1" step="0" name="maxWait" caption="Max wait" description="When exhausted action is Wait (or block) this is the amount of time in milliseconds that the pool will wait before failing. Setting a negative value will block indefinitely until an idle instance becomes available." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+    <integer defaultValue="1800000" min="-1" step="0" name="minEvictionMillis" caption="Min eviction (ms)" description="Determines the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction. When non-positive, no connections will be evicted from the pool due to idle time alone." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+    <integer defaultValue="-1" min="-1" step="0" name="evictionCheckIntervalMillis" caption="Eviction check interval (ms)" description="Specifies the number of milliseconds between runs of the connection evictor. When non-positive, no connection evictor is executed." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+  </nested>
+  <nested caption="" description="" localId="reconnectionStrategyElement" abstract="true">
+    <label name="connectionLabel" caption="Define how mule should attempt to handle a connection failure" description=""></label>
+    <radioBoolean name="noReconnection" caption="Do not use a Reconnection strategy" description="Disable reconection strategy" fillLine="true"></radioBoolean>
+    <radioBoolean name="standardReconnection" caption="Standard Reconnection" description="A reconnection strategy that allows the user to configure how many times a reconnection should be attempted and how long to wait between attempts." fillLine="true"></radioBoolean>
+    <integer defaultValue="2000" min="1" max="2147483647" step="1" name="reconnectionFrequency" caption="Frequency (ms)" description="How often (in ms) to reconnect" controlled="standardReconnection" indented="true"></integer>
+    <integer defaultValue="2" min="1" max="2147483647" step="1" name="reconnectionAttemps" caption="Reconnection Attempts" description="How many reconnection attempts to make" controlled="standardReconnection,!reconnectForever" indented="true"></integer>
+    <boolean name="reconnectForever" caption="Reconnect Forever" description="A reconnection strategy that retries an infinite number of times at the specified frequency." controlled="standardReconnection" indented="true"></boolean>
+    <radioBoolean name="customReconnection" caption="Custom Reconnection" description="A user-defined reconnection strategy." fillLine="true"></radioBoolean>
+    <classname name="class" caption="Class" description="A class that implements the RetryPolicyTemplate interface." controlled="customReconnection" indented="true"></classname>
+    <childElement allowMultiple="true" name="http://www.springframework.org/schema/beans/property" caption="Properties" description="Property elements." controlled="customReconnection"></childElement>
+  </nested>
+  <global-cloud-***REMOVED*** versions="[3.6.0,8.0.0]" caption="Redmine: Configuration type strategy" description="Global Configuration type strategy configuration information. Configuration Management Strategy." icon="icons/small/redmine-***REMOVED***-24x16.png" localId="config-type" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/redmine/parentConfig" connectivityTesting="on" connectivityTestingLabel="Test Connection..." metaData="static" metaDataKeyDisplay="DISPLAY_NAME">
     <attribute-category caption="General" description="Redmine configuration properties.">
       <group id="redmineGenericProperties" caption="Basic Settings">
         <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
       </group>
-      <group id="general" caption="General">
-        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Configurable." required="false" javaType="java.lang.String"></string>
-        <string defaultValue="How are you?" name="replay" caption="Replay" description="Configurable." required="false" javaType="java.lang.String"></string>
+      <group id="connection" caption="Connection">
+        <string name="username" caption="Username" description="" required="true" javaType="java.lang.String"></string>
+        <password name="password" caption="Password" description="" required="true" javaType="java.lang.String"></password>
+        <string defaultValue="http://192.168.11.243/redmine/" name="uri" caption="Uri" description="Configurable." required="false" javaType="java.lang.String"></string>
+        <string defaultValue="***REMOVED***" name="apiAccessKey" caption="Api Access Key" description="Configurable." required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Pooling Profile" description="Pooling profile options.">
+      <group id="poolingProfile" caption="Pooling Profile">
+        <childElement inplace="true" name="http://www.mulesoft.org/schema/mule/redmine/connection-pooling-profile" caption="" description="" valuePersistence="org.mule.tooling.ui.modules.core.widgets.meta.PoolingProfileValuePersistence"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Reconnection" description="Reconnection options.">
+      <group id="reconnectionStrategies" caption="Strategies">
+        <childElement inplace="true" name="http://www.mulesoft.org/schema/mule/core/reconnectionStrategyElement" caption="" description="" valuePersistence="org.mule.tooling.ui.modules.core.widgets.meta.HTTPTransactionValuePersistence"></childElement>
+        <childElement allowSubTypes="true" allowedSubTypes="http://www.mulesoft.org/schema/mule/core/reconnect,http://www.mulesoft.org/schema/mule/core/reconnect-custom-strategy,http://www.mulesoft.org/schema/mule/core/reconnect-forever" name="http://www.mulesoft.org/schema/mule/core/abstractReconnectionStrategy" caption="" description="" visibleInDialog="false"></childElement>
       </group>
     </attribute-category>
   </global-cloud-***REMOVED***>
@@ -20,21 +63,77 @@
       </group>
     </attribute-category>
   </cloud-***REMOVED***>
-  <cloud-***REMOVED*** versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.redmine" caption="Redmine" description="Anypoint Connector." icon="icons/small/redmine-***REMOVED***-24x16.png" localId="redmine-***REMOVED***" image="icons/large/redmine-***REMOVED***-48x32.png" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric">
+  <cloud-***REMOVED*** versions="[3.6.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.redmine" caption="Redmine" description="Anypoint Connector." icon="icons/small/redmine-***REMOVED***-24x16.png" localId="redmine-***REMOVED***" image="icons/large/redmine-***REMOVED***-48x32.png" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric">
     <attribute-category caption="General" description="General.">
       <group id="redmineConnectorGeneric" caption="Basic Settings">
         <modeSwitch alwaysCombo="true" name="Redmine operations to execute" caption="Operation" description="Operation.">
-          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" versions="[3.5.0,8.0.0]" ***REMOVED***-name="processor"></no-operation>
-          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/greet" modeLabel="Greet"></mode>
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" versions="[3.6.0,8.0.0]" ***REMOVED***-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-available-projects" modeLabel="Get available projects"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-group-detail" modeLabel="Get group detail"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-groups" modeLabel="Get groups"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-project-detail" modeLabel="Get project detail"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-project-issues" modeLabel="Get project issues"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-project-members" modeLabel="Get project members"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-role-detail" modeLabel="Get role detail"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-roles" modeLabel="Get roles"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-user-detail" modeLabel="Get user detail"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/redmine/get-users" modeLabel="Get users"></mode>
         </modeSwitch>
       </group>
     </attribute-category>
   </cloud-***REMOVED***>
-  <cloud-***REMOVED*** returnType="java.lang.String" caption="Greet" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="greet" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+  <cloud-***REMOVED*** returnType="java.util.Collection&lt;com.taskadapter.redmineapi.bean.Project&gt;" caption="Get Available Projects" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-available-projects" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="com.taskadapter.redmineapi.bean.Group" caption="Get Group Detail" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-group-detail" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
     <attribute-category caption="General" description="General.">
       <group id="general" caption="General">
-        <string name="friend" caption="Friend" description="Content to be processed." required="true" javaType="java.lang.String"></string>
+        <integer min="0" step="1" name="groupId" caption="Group Id" description="" required="true" javaType="java.lang.Integer"></integer>
       </group>
     </attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="java.util.Collection&lt;com.taskadapter.redmineapi.bean.Group&gt;" caption="Get Groups" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-groups" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="com.taskadapter.redmineapi.bean.Project" caption="Get Project Detail" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-project-detail" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="projectKey" caption="Project Key" description="Key for the project needed to get the detail." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="java.util.Collection&lt;com.taskadapter.redmineapi.bean.Issue&gt;" caption="Get Project Issues" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-project-issues" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="projectKey" caption="Project Key" description="Key for the project needed to get the issues." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="java.util.Collection&lt;com.taskadapter.redmineapi.bean.Membership&gt;" caption="Get Project Members" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-project-members" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="projectKey" caption="Project Key" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="com.taskadapter.redmineapi.bean.Role" caption="Get Role Detail" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-role-detail" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <integer min="0" step="1" name="roleId" caption="Role Id" description="" required="true" javaType="java.lang.Integer"></integer>
+      </group>
+    </attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="java.util.Collection&lt;com.taskadapter.redmineapi.bean.Role&gt;" caption="Get Roles" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-roles" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="com.taskadapter.redmineapi.bean.User" caption="Get User Detail" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-user-detail" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <integer min="0" step="1" name="userId" caption="User Id" description="" required="true" javaType="java.lang.Integer"></integer>
+      </group>
+    </attribute-category>
+  </cloud-***REMOVED***>
+  <cloud-***REMOVED*** returnType="java.util.Collection&lt;com.taskadapter.redmineapi.bean.User&gt;" caption="Get Users" icon="icons/small/redmine-***REMOVED***-24x16.png" localId="get-users" image="icons/large/redmine-***REMOVED***-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/redmine/abstractRedmineConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
   </cloud-***REMOVED***>
 </namespace>

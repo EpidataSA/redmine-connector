@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-31T05:12:25-03:00", comments = "Build UNNAMED.2405.44720b7")
+@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-31T07:38:35-03:00", comments = "Build UNNAMED.2405.44720b7")
 public class RedmineConnectorLifecycleInjectionAdapter
     extends RedmineConnectorMetadataAdapater
     implements Disposable, Initialisable, Startable, Stoppable
@@ -45,7 +45,7 @@ public class RedmineConnectorLifecycleInjectionAdapter
         throws InitialisationException
     {
         Logger log = LoggerFactory.getLogger(RedmineConnectorLifecycleInjectionAdapter.class);
-        MuleVersion ***REMOVED***Version = new MuleVersion("3.5.0");
+        MuleVersion ***REMOVED***Version = new MuleVersion("3.6");
         MuleVersion muleVersion = new MuleVersion(MuleManifest.getProductVersion());
         if (!muleVersion.atLeastBase(***REMOVED***Version)) {
             throw new InitialisationException(CoreMessages.minMuleVersionNotMet(this.getMinMuleVersion()), this);

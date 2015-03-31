@@ -9,33 +9,55 @@
       <xs:complexContent>
         <xs:extension base="mule:abstractExtensionType">
           <xs:annotation>
-            <xs:documentation>Configuration type Strategy</xs:documentation>
+            <xs:documentation>Configuration Management Strategy</xs:documentation>
           </xs:annotation>
+          <xs:sequence>
+            <xs:element type="mule:poolingProfileType" minOccurs="0" name="connection-pooling-profile">
+              <xs:annotation>
+                <xs:documentation>Characteristics of the connection pool.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" ref="mule:abstract-reconnection-strategy">
+              <xs:annotation>
+                <xs:documentation>Reconnection strategy that defines how Mule should handle a connection failure.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
           <xs:attribute type="xs:string" use="required" name="name">
             <xs:annotation>
               <xs:documentation>Give a name to this configuration so it can be later referenced by config-ref.</xs:documentation>
             </xs:annotation>
           </xs:attribute>
-          <xs:attribute type="xs:string" use="optional" default="Hello" name="greeting">
+          <xs:attribute type="xs:string" use="optional" default="http://192.168.11.243/redmine/" name="uri">
             <xs:annotation>
               <xs:documentation>Configurable</xs:documentation>
             </xs:annotation>
           </xs:attribute>
-          <xs:attribute type="xs:string" use="optional" default="How are you?" name="replay">
+          <xs:attribute type="xs:string" use="optional" default="***REMOVED***" name="apiAccessKey">
             <xs:annotation>
               <xs:documentation>Configurable</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="required" name="username">
+            <xs:annotation>
+              <xs:documentation></xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="required" name="password">
+            <xs:annotation>
+              <xs:documentation></xs:documentation>
             </xs:annotation>
           </xs:attribute>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GreetType" substitutionGroup="mule:abstract-message-processor" name="greet">
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetProjectIssuesType" substitutionGroup="mule:abstract-message-processor" name="get-project-issues">
     <xs:annotation>
-      <xs:documentation>Custom processor</xs:documentation>
+      <xs:documentation>Gets a list of issues for a given project.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name="GreetType">
+  <xs:complexType name="GetProjectIssuesType">
     <xs:complexContent>
       <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
         <xs:attribute type="xs:string" use="required" name="config-ref">
@@ -43,9 +65,178 @@
             <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute type="xs:string" use="required" name="friend">
+        <xs:attribute type="xs:string" use="required" name="projectKey">
           <xs:annotation>
-            <xs:documentation>Content to be processed</xs:documentation>
+            <xs:documentation>key for the project needed to get the issues.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetProjectDetailType" substitutionGroup="mule:abstract-message-processor" name="get-project-detail">
+    <xs:annotation>
+      <xs:documentation>Gets a project detail.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetProjectDetailType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="projectKey">
+          <xs:annotation>
+            <xs:documentation>key for the project needed to get the detail.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetAvailableProjectsType" substitutionGroup="mule:abstract-message-processor" name="get-available-projects">
+    <xs:annotation>
+      <xs:documentation>Gets a list of available projects.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetAvailableProjectsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetProjectMembersType" substitutionGroup="mule:abstract-message-processor" name="get-project-members">
+    <xs:annotation>
+      <xs:documentation>Gets a list of members of a given project.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetProjectMembersType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="projectKey">
+          <xs:annotation>
+            <xs:documentation></xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetUsersType" substitutionGroup="mule:abstract-message-processor" name="get-users">
+    <xs:annotation>
+      <xs:documentation>Gets a list of users.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetUsersType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetUserDetailType" substitutionGroup="mule:abstract-message-processor" name="get-user-detail">
+    <xs:annotation>
+      <xs:documentation>Gets a detail for a given user.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetUserDetailType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/redmine" type="integerType" use="required" name="userId">
+          <xs:annotation>
+            <xs:documentation></xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetRolesType" substitutionGroup="mule:abstract-message-processor" name="get-roles">
+    <xs:annotation>
+      <xs:documentation>Gets a list of roles.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetRolesType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetRoleDetailType" substitutionGroup="mule:abstract-message-processor" name="get-role-detail">
+    <xs:annotation>
+      <xs:documentation>Gets a detail for a given role.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetRoleDetailType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/redmine" type="integerType" use="required" name="roleId">
+          <xs:annotation>
+            <xs:documentation></xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetGroupsType" substitutionGroup="mule:abstract-message-processor" name="get-groups">
+    <xs:annotation>
+      <xs:documentation>Gets a list of groups.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetGroupsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/redmine" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetGroupDetailType" substitutionGroup="mule:abstract-message-processor" name="get-group-detail">
+    <xs:annotation>
+      <xs:documentation>Gets a detail for a given group.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetGroupDetailType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/redmine" type="integerType" use="required" name="groupId">
+          <xs:annotation>
+            <xs:documentation></xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>

@@ -9,7 +9,7 @@ import javax.annotation.Generated;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-31T05:12:25-03:00", comments = "Build UNNAMED.2405.44720b7")
+@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-31T07:38:35-03:00", comments = "Build UNNAMED.2405.44720b7")
 public interface SplashScreenAgent {
 
       /**
