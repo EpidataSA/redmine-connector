@@ -11,7 +11,7 @@ import org.mule.modules.redmine.RedmineConnector;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-31T05:12:25-03:00", comments = "Build UNNAMED.2405.44720b7")
+@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-31T07:38:35-03:00", comments = "Build UNNAMED.2405.44720b7")
 public class RedmineConnectorMetadataAdapater
     extends RedmineConnectorCapabilitiesAdapter
     implements MetadataAware
@@ -21,7 +21,7 @@ public class RedmineConnectorMetadataAdapater
     private final static String MODULE_VERSION = "1.0.0-SNAPSHOT";
     private final static String DEVKIT_VERSION = "3.6.1";
     private final static String DEVKIT_BUILD = "UNNAMED.2405.44720b7";
-    private final static String MIN_MULE_VERSION = "3.5.0";
+    private final static String MIN_MULE_VERSION = "3.6";
 
     public String getModuleName() {
         return MODULE_NAME;

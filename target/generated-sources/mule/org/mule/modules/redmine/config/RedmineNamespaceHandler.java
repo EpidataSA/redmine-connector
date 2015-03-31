@@ -14,7 +14,7 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-31T05:12:25-03:00", comments = "Build UNNAMED.2405.44720b7")
+@Generated(value = "Mule DevKit Version 3.6.1", date = "2015-03-31T07:38:35-03:00", comments = "Build UNNAMED.2405.44720b7")
 public class RedmineNamespaceHandler
     extends NamespaceHandlerSupport
 {
@@ -39,14 +39,59 @@ public class RedmineNamespaceHandler
      */
     public void init() {
         try {
-            this.registerBeanDefinitionParser("config-type", new RedmineConnectorConnectorConnectionStrategyConfigDefinitionParser());
+            this.registerBeanDefinitionParser("config-type", new RedmineConnectorConnectionManagementStrategyConfigDefinitionParser());
         } catch (NoClassDefFoundError ex) {
             handleException("config-type", "@Config", ex);
         }
         try {
-            this.registerBeanDefinitionParser("greet", new GreetDefinitionParser());
+            this.registerBeanDefinitionParser("get-project-issues", new GetProjectIssuesDefinitionParser());
         } catch (NoClassDefFoundError ex) {
-            handleException("greet", "@Processor", ex);
+            handleException("get-project-issues", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("get-project-detail", new GetProjectDetailDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("get-project-detail", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("get-available-projects", new GetAvailableProjectsDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("get-available-projects", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("get-project-members", new GetProjectMembersDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("get-project-members", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("get-users", new GetUsersDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("get-users", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("get-user-detail", new GetUserDetailDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("get-user-detail", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("get-roles", new GetRolesDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("get-roles", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("get-role-detail", new GetRoleDetailDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("get-role-detail", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("get-groups", new GetGroupsDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("get-groups", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("get-group-detail", new GetGroupDetailDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("get-group-detail", "@Processor", ex);
         }
     }
 
