@@ -42,6 +42,36 @@ public class RedmineConnector {
         this.connectionStrategy = connectionStrategy;
     }
     
+    /**
+	 * Build a new connection using a given apiKey.
+	 *
+	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * redmine:get-project-issues}
+	 *
+	 * @param apiAccessKey
+	 *            api key for the new connection.
+	 */
+//	@Processor
+//	public void buildNewManager(String apiAccessKey) {
+//		connectionStrategy.getClient().buildNewManager(apiAccessKey);		
+//	}
+	
+    /**
+	 * Create a new connection using a given username and password.
+	 *
+	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * redmine:get-project-issues}
+	 *
+	 * @param username
+	 *            username for the new connection.
+	 *            
+	 * @param password
+	 *            password for the new connection.
+	 */
+//	@Processor
+//	public void changeUser(String username, String password) {
+//		connectionStrategy.getClient().changeUser(username, password);	
+//	}
     
 	//Project processors    
     

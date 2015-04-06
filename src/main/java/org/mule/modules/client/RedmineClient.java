@@ -29,6 +29,16 @@ public class RedmineClient {
 		userService = new UserServiceImpl(uri, apiAccessKey);
 	}
 
+	public void buildNewManager(String apiAccessKey) {
+		this.projectService.buildNewManager(apiAccessKey);
+		this.userService.buildNewManager(apiAccessKey);
+	}
+
+	public void changeUser(String username, String password) {
+		this.projectService.changeUser(username, password);
+		this.userService.changeUser(username, password);
+	}
+	
 	//Project methods
 	public Collection<Issue> getIssues(String projectKey) throws RedmineException {
 		return projectService.getIssues(projectKey);
