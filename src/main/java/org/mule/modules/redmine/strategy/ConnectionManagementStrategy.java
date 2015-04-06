@@ -17,7 +17,7 @@ import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.TestConnectivity;
 import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.param.ConnectionKey;
-import org.mule.api.annotations.param.Default;
+import org.mule.api.annotations.param.Optional;
 import org.mule.modules.client.RedmineClient;
 
 /**
@@ -37,7 +37,6 @@ public class ConnectionManagementStrategy {
      * Configurable
      */
     @Configurable
-    @Default("http://192.168.11.243/redmine/")
 	@Placement(group = "Connection")    
     private String uri;
 
@@ -45,7 +44,6 @@ public class ConnectionManagementStrategy {
      * Configurable
      */
     @Configurable
-    @Default("7513fa5acffa66604a8736a7cc2d8d2dad110118")
     @Placement(group = "Connection")    
     private String apiAccessKey;
     
@@ -101,10 +99,7 @@ public class ConnectionManagementStrategy {
 	 */
 	@Connect
 	@TestConnectivity
-	public void connect(@ConnectionKey String username, @Password String password) throws ConnectionException {
-
-		this.client = new RedmineClient(this.uri, this.apiAccessKey);
-		//this.manager = RedmineManagerFactory.createWithApiKey(this.uri, this.apiAccessKey);
+	public void connect(@Optional @ConnectionKey String username, @Optional @Password String password) throws ConnectionException {
 		testConnectivity(username, password);
 	}
 
@@ -136,15 +131,19 @@ public class ConnectionManagementStrategy {
 	 * Checks if credentials are valid
 	 *
 	 * @param username
-	 *            A username
+	 *            A username (optional)
 	 * @param password
-	 *            A password
+	 *            A password (optional)
 	 * @throws ConnectionException
 	 */
 	@TestConnectivity
-	private void testConnectivity(String username, String password) throws ConnectionException {
+	public void testConnectivity(String username, String password) throws ConnectionException {
 		
-		this.client = new RedmineClient(this.uri, apiAccessKey);
+		this.client = new RedmineClient(this.uri, this.apiAccessKey);
+		
+		if (username != null && password != null) {
+			this.client.changeUser(username, password);
+		}
 	
 		if (client == null) {
 			throw new ConnectionException(ConnectionExceptionCode.INCORRECT_CREDENTIALS, 

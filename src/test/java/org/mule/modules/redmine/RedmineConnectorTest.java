@@ -6,11 +6,10 @@
 package org.mule.modules.redmine;
 
 import org.mule.modules.tests.ConnectorTestCase;
-
 import org.junit.Test;
 
 public class RedmineConnectorTest extends ConnectorTestCase {
-    
+
     @Override
     protected String getConfigResources() {
         return "redmine-config.xml";
