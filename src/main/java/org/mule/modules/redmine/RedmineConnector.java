@@ -12,6 +12,7 @@ import org.mule.api.MuleRuntimeException;
 import org.mule.api.annotations.ConnectionStrategy;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
+import org.mule.modules.redmine.exception.RedmineConnectorException;
 import org.mule.modules.redmine.strategy.ConnectionManagementStrategy;
 
 import com.taskadapter.redmineapi.RedmineException;
@@ -42,39 +43,26 @@ public class RedmineConnector {
         this.connectionStrategy = connectionStrategy;
     }
     
-    /**
-	 * Build a new connection using a given apiKey.
-	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
-	 * redmine:get-project-issues}
-	 *
-	 * @param apiAccessKey
-	 *            api key for the new connection.
-	 */
-//	@Processor
-//	public void buildNewManager(String apiAccessKey) {
-//		connectionStrategy.getClient().buildNewManager(apiAccessKey);		
-//	}
-	
-    /**
-	 * Create a new connection using a given username and password.
-	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
-	 * redmine:get-project-issues}
-	 *
-	 * @param username
-	 *            username for the new connection.
-	 *            
-	 * @param password
-	 *            password for the new connection.
-	 */
-//	@Processor
-//	public void changeUser(String username, String password) {
-//		connectionStrategy.getClient().changeUser(username, password);	
-//	}
-    
 	//Project processors    
     
+    /**
+	 * Gets a list of available projects.
+	 *
+	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * redmine:get-available-projects}
+	 *
+	 * @return Collection of Project
+	 * @throws RedmineConnectorException if there is a problem in the execution
+	 */		
+	@Processor
+	public Collection<Project> getAvailableProjects() throws RedmineConnectorException {
+		try {
+			return connectionStrategy.getClient().getAvailableProjects();
+		} catch (RedmineException ex) {
+			throw new RedmineConnectorException(ex);
+		}			
+	}
+	
     /**
 	 * Gets a list of issues for a given project.
 	 *
@@ -85,13 +73,14 @@ public class RedmineConnector {
 	 *            key for the project needed to get the issues.
 	 *
 	 * @return Collection of Issue
+	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */
 	@Processor
-	public Collection<Issue> getProjectIssues(String projectKey) throws MuleException {
+	public Collection<Issue> getProjectIssues(String projectKey) throws RedmineConnectorException {
 		try {
 			return connectionStrategy.getClient().getIssues(projectKey);
 		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
+			throw new RedmineConnectorException(ex);
 		}		
 	}
 	
@@ -105,30 +94,14 @@ public class RedmineConnector {
 	 *            key for the project needed to get the detail.
 	 *
 	 * @return Project
+	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */	
 	@Processor
-	public Project getProjectDetail(String projectKey) throws MuleException {
+	public Project getProjectDetail(String projectKey) throws RedmineConnectorException {
 		try {
 			return connectionStrategy.getClient().getProjectDetail(projectKey);
 		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
-		}			
-	}
-	
-    /**
-	 * Gets a list of available projects.
-	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
-	 * redmine:get-available-projects}
-	 *
-	 * @return Collection of Project
-	 */		
-	@Processor
-	public Collection<Project> getAvailableProjects() throws MuleException {
-		try {
-			return connectionStrategy.getClient().getAvailableProjects();
-		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
+			throw new RedmineConnectorException(ex);
 		}			
 	}
 	
@@ -138,14 +111,18 @@ public class RedmineConnector {
 	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
 	 * redmine:get-project-members}
 	 *
+	 * @param projectKey
+	 *            key for the project needed to get the issues.
+	 *            
 	 * @return Collection of Membership
+	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */		
 	@Processor
-	public Collection<Membership> getProjectMembers(String projectKey) throws MuleException {
+	public Collection<Membership> getProjectMembers(String projectKey) throws RedmineConnectorException {
 		try {
 			return connectionStrategy.getClient().getMembers(projectKey);
 		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
+			throw new RedmineConnectorException(ex);
 		}		
 	}
 
@@ -159,13 +136,14 @@ public class RedmineConnector {
 	 * redmine:get-users}
 	 *
 	 * @return Collection of User
+	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */		
 	@Processor
-	public Collection<User> getUsers() throws MuleException {
+	public Collection<User> getUsers() throws RedmineConnectorException {
 		try {
 			return connectionStrategy.getClient().getUsers();
 		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
+			throw new RedmineConnectorException(ex);
 		}		
 	}
 
@@ -175,14 +153,18 @@ public class RedmineConnector {
 	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
 	 * redmine:get-user-detail}
 	 *
+	 * @param userId
+	 *            id for the user needed to get the detail.
+	 *            
 	 * @return User
+	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */		
 	@Processor
-	public User getUserDetail(Integer userId) throws MuleException {
+	public User getUserDetail(Integer userId) throws RedmineConnectorException {
 		try {
 			return connectionStrategy.getClient().getUserDetail(userId);
 		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
+			throw new RedmineConnectorException(ex);
 		}			
 	}
 
@@ -193,13 +175,14 @@ public class RedmineConnector {
 	 * redmine:get-roles}
 	 *
 	 * @return Collection of Role
+	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */		
 	@Processor
-	public Collection<Role> getRoles() throws MuleException {
+	public Collection<Role> getRoles() throws RedmineConnectorException {
 		try {
 			return connectionStrategy.getClient().getRoles();
 		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
+			throw new RedmineConnectorException(ex);
 		}			
 	}
 
@@ -207,16 +190,20 @@ public class RedmineConnector {
 	 * Gets a detail for a given role.
 	 *
 	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
-	 * redmine:get-role}
+	 * redmine:get-role-detail}
 	 *
+	 * @param roleId
+	 *            id for the role needed to get the detail.
+	 *            
 	 * @return Role
+	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */		
 	@Processor
-	public Role getRoleDetail(Integer roleId) throws MuleException {
+	public Role getRoleDetail(Integer roleId) throws RedmineConnectorException {
 		try {
 			return connectionStrategy.getClient().getRoleDetail(roleId);
 		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
+			throw new RedmineConnectorException(ex);
 		}			
 	}
 
@@ -227,13 +214,14 @@ public class RedmineConnector {
 	 * redmine:get-groups}
 	 *
 	 * @return Collection of Group
+	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */		
 	@Processor
-	public Collection<Group> getGroups() throws MuleException {
+	public Collection<Group> getGroups() throws RedmineConnectorException {
 		try {
 			return connectionStrategy.getClient().getGroups();
 		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
+			throw new RedmineConnectorException(ex);
 		}
 	}
 
@@ -243,14 +231,18 @@ public class RedmineConnector {
 	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
 	 * redmine:get-group-detail}
 	 *
+	 * @param groupId
+	 *            id for the group needed to get the detail.
+	 *            
 	 * @return Collection of Group
+	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */		
 	@Processor
-	public Group getGroupDetail(Integer groupId) throws MuleException {		
+	public Group getGroupDetail(Integer groupId) throws RedmineConnectorException {		
 		try {
 			return connectionStrategy.getClient().getGroupDetail(groupId);
 		} catch (RedmineException ex) {
-			throw new MuleRuntimeException(ex);
+			throw new RedmineConnectorException(ex);
 		}		
 	}
 }

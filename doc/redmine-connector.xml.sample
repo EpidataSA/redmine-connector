@@ -1,3 +1,43 @@
 <!-- BEGIN_INCLUDE(redmine:greet) -->
-    <redmine:greet config-ref="" friend="#[map-payload:friend]" />
+    <!--redmine:greet config-ref="" friend="#[map-payload:friend]" /-->
 <!-- END_INCLUDE(redmine:greet) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-available-projects) -->
+    <redmine:get-available-projects config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-available-projects) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-project-issues) -->
+    <redmine:get-project-issues projectKey="#[map-payload:projectKey]" config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-project-issues) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-project-detail) -->
+    <redmine:get-project-detail projectKey="#[map-payload:projectKey]" config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-project-detail) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-project-members) -->
+    <redmine:get-project-members projectKey="#[map-payload:projectKey]" config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-project-members) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-users) -->
+    <redmine:get-users config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-users) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-user-detail) -->
+    <redmine:get-user-detail userId="#[map-payload:userId]" config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-user-detail) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-roles) -->
+    <redmine:get-roles config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-roles) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-role-detail) -->
+    <redmine:get-role-detail roleId="#[map-payload:roleId]" config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-role-detail) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-groups) -->
+    <redmine:get-groups config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-groups) -->
+
+<!-- BEGIN_INCLUDE(redmine:get-group-detail) -->
+    <redmine:get-group-detail groupId="#[map-payload:groupId]" config-ref="Redmine"/>
+<!-- END_INCLUDE(redmine:get-group-detail) -->
