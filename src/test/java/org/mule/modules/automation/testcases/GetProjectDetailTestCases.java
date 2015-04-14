@@ -45,6 +45,15 @@ public class GetProjectDetailTestCases
     {
         Project project = runFlowAndGetPayload("get-project-detail");
         Assert.notNull(project);
+        Assert.isTrue(project.getIdentifier().contentEquals("operacionesproyectos"));
+        Assert.isTrue(project.getName().contentEquals("Proyectos"));
+        Assert.isTrue(project.getDescription().contentEquals(""));
+		Assert.isTrue(project.getHomepage().contentEquals(""));
+		Assert.notNull(project.getTrackers());
+		Assert.isTrue(project.getTrackerByName("story").getId()==6);
+		Assert.isTrue(project.getTrackerByName("Evento de proyecto").getId()==25);
+		Assert.isTrue(project.getTrackerByName("Hito proyecto").getId()==24);
+		Assert.isNull(project.getParentId());
     }
 
 }

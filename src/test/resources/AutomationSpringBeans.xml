@@ -5,44 +5,53 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util-3.0.xsd
+						http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
-<context:property-placeholder location="automation-credentials.properties"/>
-
+	<context:property-placeholder location="classpath:automation-credentials.properties"/> 
+ 
 <!--getAvailableProjects-->
 <util:map id="getAvailableProjectsTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
  </util:map>
 <!--getProjectIssues-->
 <util:map id="getProjectIssuesTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="projectKey" value=""/>
+ <entry key="projectKey" value="73"/>
     </util:map>
 <!--getProjectDetail-->
 <util:map id="getProjectDetailTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="projectKey" value=""/>
+ <entry key="projectKey" value="73"/>
     </util:map>
 <!--getProjectMembers-->
 <util:map id="getProjectMembersTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="projectKey" value=""/>
+ <entry key="projectKey" value="73"/>
     </util:map>
 <!--getUsers-->
 <util:map id="getUsersTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
  </util:map>
 <!--getUserDetail-->
 <util:map id="getUserDetailTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="userId" value=""/>
+ <entry key="userId" value="15"/>
     </util:map>
 <!--getRoles-->
 <util:map id="getRolesTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
  </util:map>
 <!--getRoleDetail-->
 <util:map id="getRoleDetailTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="roleId" value=""/>
+ <entry key="roleId" value="3"/>
     </util:map>
 <!--getGroups-->
 <util:map id="getGroupsTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
  </util:map>
 <!--getGroupDetail-->
 <util:map id="getGroupDetailTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="groupId" value=""/>
+ <entry key="groupId" value="3"/>
     </util:map>
 </beans>
