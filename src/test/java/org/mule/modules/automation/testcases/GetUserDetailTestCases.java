@@ -14,7 +14,7 @@ import org.mule.modules.automation.RegressionTests;
 import org.mule.modules.automation.SmokeTests;
 import org.springframework.util.Assert;
 
-import com.sun.tools.xjc.reader.xmlschema.bindinfo.BIConversion.User;
+import com.taskadapter.redmineapi.bean.User;
 
 public class GetUserDetailTestCases
     extends RedmineTestParent
@@ -24,7 +24,6 @@ public class GetUserDetailTestCases
     public void setup()
         throws Exception
     {
-        //TODO: Add setup required to run test or remove method
         initializeTestRunMessage("getUserDetailTestData");
     }
 
@@ -32,7 +31,6 @@ public class GetUserDetailTestCases
     public void tearDown()
         throws Exception
     {
-        //TODO: Add code to reset sandbox state to the one before the test was run or remove
     }
 
     @Category({
@@ -45,6 +43,12 @@ public class GetUserDetailTestCases
     {
         User user = runFlowAndGetPayload("get-user-detail");
         Assert.notNull(user);
+        Assert.isTrue(user.getId() == 15);
+        Assert.isTrue(user.getFirstName().contentEquals("Ana Paula"));
+        Assert.isTrue(user.getLastName().contentEquals("Lo Turco"));
+		Assert.isTrue(user.getMail().contentEquals("anapaulal@epidataconsulting.com"));
+		Assert.notNull(user.getMemberships());
+    
     }
 
 }
