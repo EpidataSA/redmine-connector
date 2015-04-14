@@ -24,7 +24,6 @@ public class GetRoleDetailTestCases
     public void setup()
         throws Exception
     {
-        //TODO: Add setup required to run test or remove method
         initializeTestRunMessage("getRoleDetailTestData");
     }
 
@@ -32,7 +31,6 @@ public class GetRoleDetailTestCases
     public void tearDown()
         throws Exception
     {
-        //TODO: Add code to reset sandbox state to the one before the test was run or remove
     }
 
     @Category({
@@ -45,6 +43,10 @@ public class GetRoleDetailTestCases
     {
         Role role = runFlowAndGetPayload("get-role-detail");
         Assert.notNull(role);
+        Assert.isTrue(role.getId() == 3);
+        Assert.isTrue(!role.getInherited());
+        Assert.isTrue(role.getName().contentEquals("Manager"));
+        Assert.notNull(role.getPermissions());
     }
 
 }
