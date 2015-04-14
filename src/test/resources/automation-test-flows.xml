@@ -13,8 +13,7 @@ http://www.mulesoft.org/schema/mule/redmine http://www.mulesoft.org/schema/mule/
 
 <context:property-placeholder location="automation-credentials.properties" />
 
-<!-- <redmine:config-type apiAccessKey="${redmine.apiAccessKey}" username="${redmine.username}" password="${redmine.password}" uri="${redmine.uri}" name="Redmine" doc:name="Redmine"></redmine:config-type> -->
-<redmine:config-type apiAccessKey="***REMOVED***" username="***REMOVED***" password="***REMOVED***" uri="http://192.168.11.243/redmine/" name="Redmine" doc:name="Redmine"></redmine:config-type>
+<redmine:config-type apiAccessKey="${redmine.apiAccessKey}" username="${redmine.username}" password="${redmine.password}" uri="${redmine.uri}" name="Redmine" doc:name="Redmine"></redmine:config-type>
 
 <flow name="get-available-projects" doc:name="GetAvailableProjects">
 	<redmine:get-available-projects config-ref="Redmine"/>
