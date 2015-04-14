@@ -26,7 +26,6 @@ public class GetProjectMembersTestCases
     public void setup()
         throws Exception
     {
-        //TODO: Add setup required to run test or remove method
         initializeTestRunMessage("getProjectMembersTestData");
     }
 
@@ -34,7 +33,6 @@ public class GetProjectMembersTestCases
     public void tearDown()
         throws Exception
     {
-        //TODO: Add code to reset sandbox state to the one before the test was run or remove
     }
 
     @Category({

@@ -5,12 +5,15 @@
 
 package org.mule.modules.automation.testcases;
 
+import static org.junit.Assert.fail;
+
 import java.util.Collection;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.api.MessagingException;
 import org.mule.modules.automation.RedmineTestParent;
 import org.mule.modules.automation.RegressionTests;
 import org.mule.modules.automation.SmokeTests;
@@ -45,9 +48,14 @@ public class GetGroupsTestCases
     public void testGetGroups()
         throws Exception
     {
-        Collection<Group> groups = runFlowAndGetPayload("get-groups");
-        Assert.notNull(groups);
-        Assert.notEmpty(groups);
+    	try {
+    		Collection<Group> groups = runFlowAndGetPayload("get-groups");   
+            Assert.notNull(groups);
+            Assert.notEmpty(groups);
+          fail( "GetGroups() method should throw a MessagingException because the credentials do not have admin permissions" );
+        } catch (MessagingException expectedException) {
+        }
+        
     }
 
 }
