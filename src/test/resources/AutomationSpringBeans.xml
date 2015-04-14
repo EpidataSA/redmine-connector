@@ -16,7 +16,7 @@
 						http://www.springframework.org/schema/context
 						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
-	<context:property-placeholder location="classpath:automation-credentials.properties"/> 
+	<context:property-placeholder location="automation-credentials.properties"/> 
  
 <!--getAvailableProjects-->
 <util:map id="getAvailableProjectsTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
