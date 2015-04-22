@@ -11,8 +11,10 @@ import java.util.List;
 
 import org.mule.modules.redmine.service.ProjectService;
 
+import com.taskadapter.redmineapi.IssueManager;
 import com.taskadapter.redmineapi.RedmineException;
 import com.taskadapter.redmineapi.bean.Issue;
+import com.taskadapter.redmineapi.bean.IssueFactory;
 import com.taskadapter.redmineapi.bean.Membership;
 import com.taskadapter.redmineapi.bean.Project;
 
@@ -51,5 +53,19 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
 		}
 		
 		return result;
+	}
+
+	@Override
+	public Issue createIssue(String projectKey, String subject, String description, Integer priorityId, Integer statusId, String statusName)  throws RedmineException {
+		Issue issueToCreate = IssueFactory.createWithSubject(subject);
+		IssueManager issueManager = this.manager.getIssueManager();
+	    Project project = this.manager.getProjectManager().getProjectByKey(projectKey);
+	    issueToCreate.setProject(project);
+		issueToCreate.setDescription(description);
+		issueToCreate.setPriorityId(priorityId);
+		issueToCreate.setStatusId(statusId);;
+		issueToCreate.setStatusName(statusName);;
+		Issue createdIssue = issueManager.createIssue(issueToCreate);
+		return createdIssue;
 	}
 }

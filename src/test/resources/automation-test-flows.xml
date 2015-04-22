@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <mule xmlns:redmine="http://www.mulesoft.org/schema/mule/redmine" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.0"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:context="http://www.springframework.org/schema/context"
 
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 http://www.mulesoft.org/schema/mule/redmine http://www.mulesoft.org/schema/mule/redmine/current/mule-redmine.xsd"
 >
 
@@ -15,44 +15,56 @@ http://www.mulesoft.org/schema/mule/redmine http://www.mulesoft.org/schema/mule/
 
 <redmine:config-type apiAccessKey="${redmine.apiAccessKey}" username="${redmine.username}" password="${redmine.password}" uri="${redmine.uri}" name="Redmine" doc:name="Redmine"></redmine:config-type>
 
-<flow name="get-available-projects" doc:name="GetAvailableProjects">
-	<redmine:get-available-projects config-ref="Redmine"/>
+
+<flow name="create-issue" >
+	<redmine:create-issue config-ref="Redmine" doc:name="Redmine" 
+		projectKey="#[flowVars.projectKey]" 
+		subject="#[flowVars.subject]"
+		description="#[flowVars.description]"
+		priorityId="#[flowVars.priorityId]"
+	 	statusId="#[flowVars.statusId]"
+		statusName="#[flowVars.statusName]"
+	/>
 </flow>
 
-<flow name="get-project-issues" doc:name="GetProjectIssues">
-	<redmine:get-project-issues config-ref="Redmine" projectKey="#[flowVars.projectKey]" />
+<flow name="get-available-projects" >
+	<redmine:get-available-projects config-ref="Redmine" doc:name="Redmine"/>
 </flow>
 
-<flow name="get-project-detail" doc:name="GetProjectDetail">
-	<redmine:get-project-detail config-ref="Redmine" projectKey="#[flowVars.projectKey]" />
+<flow name="get-project-issues" >
+	<redmine:get-project-issues config-ref="Redmine" projectKey="#[flowVars.projectKey]" doc:name="Redmine"/>
 </flow>
 
-<flow name="get-project-members" doc:name="GetProjectMembers">
-	<redmine:get-project-members config-ref="Redmine" projectKey="#[flowVars.projectKey]" />
+<flow name="get-project-detail" >
+	<redmine:get-project-detail config-ref="Redmine" projectKey="#[flowVars.projectKey]" doc:name="Redmine"/>
 </flow>
 
-<flow name="get-users" doc:name="GetUsers">
-	<redmine:get-users config-ref="Redmine"/>
+<flow name="get-project-members" >
+	<redmine:get-project-members config-ref="Redmine" projectKey="#[flowVars.projectKey]" doc:name="Redmine"/>
 </flow>
 
-<flow name="get-user-detail" doc:name="GetUserDetail">
-	<redmine:get-user-detail config-ref="Redmine" userId="#[flowVars.userId]" />
+<flow name="get-users" >
+	<redmine:get-users config-ref="Redmine" doc:name="Redmine"/>
 </flow>
 
-<flow name="get-roles" doc:name="GetRoles">
-	<redmine:get-roles config-ref="Redmine"/>
+<flow name="get-user-detail" >
+	<redmine:get-user-detail config-ref="Redmine" userId="#[flowVars.userId]" doc:name="Redmine"/>
 </flow>
 
-<flow name="get-role-detail" doc:name="GetRoleDetail">
-	<redmine:get-role-detail config-ref="Redmine" roleId="#[flowVars.roleId]" />
+<flow name="get-roles" >
+        <redmine:get-roles config-ref="Redmine" doc:name="Redmine"/>
 </flow>
 
-<flow name="get-groups" doc:name="GetGroups">
-	<redmine:get-groups config-ref="Redmine"/>
+<flow name="get-role-detail" >
+	<redmine:get-role-detail config-ref="Redmine" roleId="#[flowVars.roleId]" doc:name="Redmine"/>
 </flow>
 
-<flow name="get-group-detail" doc:name="GetGroupDetail">
-	<redmine:get-group-detail config-ref="Redmine" groupId="#[flowVars.groupId]" />
+<flow name="get-groups" >
+	<redmine:get-groups config-ref="Redmine" doc:name="Redmine"/>
+</flow>
+
+<flow name="get-group-detail" >
+	<redmine:get-group-detail config-ref="Redmine" groupId="#[flowVars.groupId]" doc:name="Redmine"/>
 </flow>
 
 
