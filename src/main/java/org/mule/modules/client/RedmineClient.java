@@ -60,7 +60,12 @@ public class RedmineClient {
 	public Collection<Membership> getMembers(String projectKey) throws RedmineException {
 		return projectService.getMembers(projectKey);
 	}
-
+//
+	public Issue createIssue(String projectKey, String subject, String description, Integer priorityId,
+	Integer statusId, String statusName) throws RedmineException {
+		return projectService.createIssue(projectKey, subject, description, priorityId, statusId, statusName);
+	}
+//	
 	//User methods
 	public Collection<User> getUsers() throws RedmineException {
 		return userService.getUsers();
