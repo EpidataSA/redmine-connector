@@ -7,8 +7,6 @@ package org.mule.modules.redmine;
 
 import java.util.Collection;
 
-import org.mule.api.MuleException;
-import org.mule.api.MuleRuntimeException;
 import org.mule.api.annotations.ConnectionStrategy;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
@@ -245,4 +243,34 @@ public class RedmineConnector {
 			throw new RedmineConnectorException(ex);
 		}		
 	}
+	
+	/**
+	 * Creates a new issue for a given project with a given subject, project Id.
+	 *	Status Id and Status name
+	 *
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
+	 * redmine:create-issue}
+	 *
+	 * @param projectKey
+	 *            key for the project needed to set the new issue.
+	 * @param subject
+	 *			subject for the new issue to create
+	 * @param priorityId 
+	 * 			Id for set the priority for the new issue to create
+	 * @param statusId
+	 * 			Id for the status for the new issue to create
+	 * @param statusName
+	 * 			name for the status for the new issue to create
+	 * @throws RedmineConnectorException if there is a problem in the execution
+	 */
+	@Processor
+	public Issue createIssue(String projectKey, String subject, String description, Integer priorityId,
+			Integer statusId, String statusName) throws RedmineConnectorException {
+		try {
+			return connectionStrategy.getClient().createIssue(projectKey, subject, description, priorityId, statusId, statusName);
+		} catch (RedmineException ex) {
+			throw new RedmineConnectorException(ex);
+		}		
+	}
+	
 }
