@@ -17,13 +17,22 @@
 						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
 	<context:property-placeholder location="automation-credentials.properties"/> 
- 
+
+<!--createIssue-->
+<util:map id="createIssueTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
+ <entry key="projectKey" value="22"/>
+ <entry key="subject" value="Connector Testing: Creating new Issue"/>
+ <entry key="description" value="Connector Testing: Description for the new Issue"/>
+ <entry key="priorityId" value="4"/>
+ <entry key="statusId" value="1"/>
+ <entry key="statusName" value="New"/>
+ </util:map> 
 <!--getAvailableProjects-->
 <util:map id="getAvailableProjectsTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
  </util:map>
 <!--getProjectIssues-->
 <util:map id="getProjectIssuesTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="projectKey" value="73"/>
+ <entry key="projectKey" value="22"/>
     </util:map>
 <!--getProjectDetail-->
 <util:map id="getProjectDetailTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
