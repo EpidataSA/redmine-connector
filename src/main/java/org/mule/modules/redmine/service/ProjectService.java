@@ -21,4 +21,8 @@ public interface ProjectService extends BaseService {
 	Collection<Project> getAvailableProjects() throws RedmineException;
 	
 	Collection<Membership> getMembers(String projectKey) throws RedmineException;
+
+	Issue createIssue(String projectKey, String subject, String description,
+			Integer priorityId, Integer statusId, String statusName)
+			throws RedmineException;
 }
