@@ -38,7 +38,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
     </flow>
     <flow name="createIssue">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/create-issue" doc:name="HTTP"/>
-        <redmine:create-issue config-ref="Redmine_Configuration" description="Demo: Creating a new issue" projectKey="22" statusName="New" subject="Deme: New Issue" priorityId="4" statusId="1" doc:name="Redmine"/>
+        <redmine:create-issue config-ref="Redmine_Configuration" description="Demo: Creating a new issue" projectKey="22" statusName="New" subject="Deme: New Issue" priorityId="4" statusId="1" doc:name="Redmine" dueDate="09/09/2014" startDate="08/09/2014"/>
         <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
         <logger level="INFO" doc:name="Logger"/>
     </flow>

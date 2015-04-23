@@ -245,8 +245,7 @@ public class RedmineConnector {
 	}
 	
 	/**
-	 * Creates a new issue for a given project with a given project Id, subject, description, priority Id, status Id and status name.
-	 *	Status Id and Status name
+	 * Creates a new issue for a given project with a given project Id, subject, description, priority Id, status Id, status name, User asignee, category Id, version Id, parent Id, start and due date, a done ratio and a estimated time.
 	 *
 	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
 	 * redmine:create-issue}
@@ -254,15 +253,32 @@ public class RedmineConnector {
 	 * @param projectKey
 	 *            key for the project needed to set the new issue.
 	 * @param subject
-	 *			subject for the new issue to create
+	 *			subject for the new issue to create.
 	 * @param description
-	 * 			A description of the new issue
+	 * 			A description of the new issue.
 	 * @param priorityId 
-	 * 			Id for set the priority for the new issue to create
+	 * 			Id for set the priority for the new issue to create.
 	 * @param statusId
-	 * 			Id for the status for the new issue to create
+	 * 			Id for the status for the new issue to create.
 	 * @param statusName
-	 * 			name for the status for the new issue to create
+	 * 			name for the status for the new issue to create.
+	 * @param assigneeId 
+	 * 			Id for for the user needed to set the assignee.
+	 * @param categoryId
+	 * 			Id for the category needed to set the issue category.
+	 * @param versionId
+	 * 			Id for the version needed to set the version in the new issue.
+	 * @param parentId
+	 * 			Id for the parent needed to set the parent in the new issue.
+	 * @param startDate
+	 *			The Date for the start date of the new issue.
+	 * @param dueDate
+	 * 			The Date for the start date of the new issue, this date need must be set after the start date.
+	 * @param estimatedTime
+	 * 			Estimated time of the new issue.
+	 * @param doneRatio
+	 * 			The percent of the done ratio for the new issue.
+	 * @return Issue
 	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */
 	@Processor
