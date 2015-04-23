@@ -23,8 +23,7 @@ http://www.mulesoft.org/schema/mule/redmine http://www.mulesoft.org/schema/mule/
 		description="#[flowVars.description]"
 		priorityId="#[flowVars.priorityId]"
 	 	statusId="#[flowVars.statusId]"
-		statusName="#[flowVars.statusName]"
-	/>
+		statusName="#[flowVars.statusName]" dueDate="#[flowVars.dueDate]" startDate="#[flowVars.startDate]"/>
 </flow>
 
 <flow name="get-available-projects" >

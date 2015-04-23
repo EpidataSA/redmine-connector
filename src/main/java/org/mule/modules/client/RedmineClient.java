@@ -6,7 +6,6 @@
 package org.mule.modules.client;
 
 import java.util.Collection;
-
 import org.mule.modules.redmine.service.ProjectService;
 import org.mule.modules.redmine.service.UserService;
 import org.mule.modules.redmine.service.impl.ProjectServiceImpl;
@@ -22,13 +21,12 @@ import com.taskadapter.redmineapi.bean.User;
 
 public class RedmineClient {
 
-	//Project service for Redmine
+	// Project service for Redmine
 	private ProjectService projectService;
-	
-	//User service for Redmine
+
+	// User service for Redmine
 	private UserService userService;
-	
-	
+
 	public RedmineClient(String uri, String apiAccessKey) {
 		projectService = new ProjectServiceImpl(uri, apiAccessKey);
 		userService = new UserServiceImpl(uri, apiAccessKey);
@@ -43,30 +41,40 @@ public class RedmineClient {
 		this.projectService.changeUser(username, password);
 		this.userService.changeUser(username, password);
 	}
-	
-	//Project methods
-	public Collection<Issue> getIssues(String projectKey) throws RedmineException {
+
+	// Project methods
+	public Collection<Issue> getIssues(String projectKey)
+			throws RedmineException {
 		return projectService.getIssues(projectKey);
 	}
-	
+
 	public Project getProjectDetail(String projectKey) throws RedmineException {
 		return projectService.getProjectDetail(projectKey);
 	}
-	
+
 	public Collection<Project> getAvailableProjects() throws RedmineException {
 		return projectService.getAvailableProjects();
 	}
-	
-	public Collection<Membership> getMembers(String projectKey) throws RedmineException {
+
+	public Collection<Membership> getMembers(String projectKey)
+			throws RedmineException {
 		return projectService.getMembers(projectKey);
 	}
-//
-	public Issue createIssue(String projectKey, String subject, String description, Integer priorityId,
-	Integer statusId, String statusName) throws RedmineException {
-		return projectService.createIssue(projectKey, subject, description, priorityId, statusId, statusName);
+
+	//
+	public Issue createIssue(String projectKey, String subject,
+			String description, Integer priorityId, Integer statusId,
+			String statusName, Integer assigneeId, Integer categoryId,
+			Integer versionId, Integer parentId, String startDate,
+			String dueDate, Float estimatedTime, Integer doneRatio)
+			throws RedmineException {
+				
+		return projectService.createIssue(projectKey, subject, description,
+				priorityId, statusId, statusName, assigneeId, categoryId, versionId,
+				parentId, startDate, dueDate, estimatedTime, doneRatio);
 	}
-//	
-	//User methods
+
+	// User methods
 	public Collection<User> getUsers() throws RedmineException {
 		return userService.getUsers();
 	}

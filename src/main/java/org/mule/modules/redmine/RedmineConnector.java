@@ -6,10 +6,10 @@
 package org.mule.modules.redmine;
 
 import java.util.Collection;
-
 import org.mule.api.annotations.ConnectionStrategy;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
+import org.mule.api.annotations.param.Optional;
 import org.mule.modules.redmine.exception.RedmineConnectorException;
 import org.mule.modules.redmine.strategy.ConnectionManagementStrategy;
 
@@ -245,7 +245,7 @@ public class RedmineConnector {
 	}
 	
 	/**
-	 * Creates a new issue for a given project with a given subject, project Id.
+	 * Creates a new issue for a given project with a given project Id, subject, description, priority Id, status Id and status name.
 	 *	Status Id and Status name
 	 *
 	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
@@ -255,6 +255,8 @@ public class RedmineConnector {
 	 *            key for the project needed to set the new issue.
 	 * @param subject
 	 *			subject for the new issue to create
+	 * @param description
+	 * 			A description of the new issue
 	 * @param priorityId 
 	 * 			Id for set the priority for the new issue to create
 	 * @param statusId
@@ -264,10 +266,13 @@ public class RedmineConnector {
 	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */
 	@Processor
-	public Issue createIssue(String projectKey, String subject, String description, Integer priorityId,
-			Integer statusId, String statusName) throws RedmineConnectorException {
+	public Issue createIssue(String projectKey, String subject,
+			@Optional String description, Integer priorityId, Integer statusId,
+			String statusName, @Optional Integer assigneeId, @Optional Integer categoryId,
+			@Optional Integer versionId, @Optional Integer parentId, String startDate, String dueDate,
+			@Optional Float estimatedTime, @Optional Integer doneRatio) throws RedmineConnectorException {
 		try {
-			return connectionStrategy.getClient().createIssue(projectKey, subject, description, priorityId, statusId, statusName);
+			return connectionStrategy.getClient().createIssue(projectKey, subject, description, priorityId, statusId, statusName, assigneeId, categoryId, versionId, parentId, startDate, dueDate, estimatedTime, doneRatio);
 		} catch (RedmineException ex) {
 			throw new RedmineConnectorException(ex);
 		}		
