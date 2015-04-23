@@ -6,7 +6,6 @@
 package org.mule.modules.redmine.service;
 
 import java.util.Collection;
-
 import com.taskadapter.redmineapi.RedmineException;
 import com.taskadapter.redmineapi.bean.Issue;
 import com.taskadapter.redmineapi.bean.Membership;
@@ -23,6 +22,8 @@ public interface ProjectService extends BaseService {
 	Collection<Membership> getMembers(String projectKey) throws RedmineException;
 
 	Issue createIssue(String projectKey, String subject, String description,
-			Integer priorityId, Integer statusId, String statusName)
-			throws RedmineException;
+			Integer priorityId, Integer statusId, String statusName,
+			Integer assigneeId, Integer categoryId, Integer versionId,
+			Integer parentId, String startDate, String dueDate,
+			Float estimatedTime, Integer doneRatio) throws RedmineException;
 }
