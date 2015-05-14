@@ -6,33 +6,33 @@
 
 [Step 2: Create Demo project](#step-2-create-demo-project)   
 
-[Step 3: Add Global Elements](#step3-add-global-elements)  
+[Step 3: Add Global Elements](#step-3-add-global-elements)  
 
-[Step 4: Create a New Flow](#step4-create-a-new-flow)   
+[Step 4: Create a New Flow](#step-4-create-a-new-flow)   
 
-[Step 4.1: Get available properties flow](#step4.1-get-available-properties-flow)   
+[Step 4.1: Get available properties flow](#step-4.1-get-available-properties-flow)   
 
-[Step 4.2: Get group detail flow](#step4.2-get-group-detail-flow)   
+[Step 4.2: Get group detail flow](#step-4.2-get-group-detail-flow)   
 
-[Step 4.3: Get groups flow](#step4.3-get-groups-flow)   
+[Step 4.3: Get groups flow](#step-4.3-get-groups-flow)   
 
-[Step 4.4: Get project detail flow](#step4.4-get-project-detail-flow)   
+[Step 4.4: Get project detail flow](#step-4.4-get-project-detail-flow)   
 
-[Step 4.5: Get project issues flow](#step4.5-get-project-issues-flow)   
+[Step 4.5: Get project issues flow](#step-4.5-get-project-issues-flow)   
 
-[Step 4.6: Get project members flow](#step4.6-get-project-members-flow)   
+[Step 4.6: Get project members flow](#step-4.6-get-project-members-flow)   
 
-[Step 4.7: Get role detail flow](#step4.7-get-role-detail-flow)   
+[Step 4.7: Get role detail flow](#step-4.7-get-role-detail-flow)   
 
-[Step 4.8: Get roles flow](#step4.8-get-roles-flow)   
+[Step 4.8: Get roles flow](#step-4.8-get-roles-flow)   
 
-[Step 4.9: Get user detail flow](#step4.9-get-user-detail-flow)   
+[Step 4.9: Get user detail flow](#step-4.9-get-user-detail-flow)   
 
-[Step 4.10: Get users flow](#step4.10-get-users-flow)   
+[Step 4.10: Get users flow](#step-4.10-get-users-flow)   
 
-[Step 5: Add an Object to XML transformer](#step5-add-an-object-to-xml-transformer)    
+[Step 5: Add an Object to XML transformer](#step-5-add-an-object-to-xml-transformer)    
 
-[Step 6: Run Demo project](#step6-run-demo-project)      
+[Step 6: Run Demo project](#step-6-run-demo-project)      
 
 [Other Resources](#other-resources)    
 
