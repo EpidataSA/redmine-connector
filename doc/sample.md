@@ -179,7 +179,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 ![Get Available Projects](images/Step4-1-1.png)
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 
@@ -191,7 +191,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 ![Get Group Detail](images/Step4-2-1.png)
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 
@@ -207,7 +207,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 
@@ -224,7 +224,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 
@@ -240,7 +240,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 ### Step 4.6: Get project members flow.
@@ -255,7 +255,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 
@@ -271,7 +271,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 
@@ -287,7 +287,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 
@@ -304,7 +304,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 
@@ -320,7 +320,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
 
