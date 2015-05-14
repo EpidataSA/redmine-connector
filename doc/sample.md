@@ -10,25 +10,25 @@
 
 [Step 4: Create a New Flow](#step-4-create-a-new-flow)   
 
-[Step 4.1: Get available properties flow](#step-4.1-get-available-properties-flow)   
+[Step 4.1: Get available properties flow](#step-4-1-get-available-properties-flow)   
 
-[Step 4.2: Get group detail flow](#step-4.2-get-group-detail-flow)   
+[Step 4.2: Get group detail flow](#step-4-2-get-group-detail-flow)   
 
-[Step 4.3: Get groups flow](#step-4.3-get-groups-flow)   
+[Step 4.3: Get groups flow](#step-4-3-get-groups-flow)   
 
-[Step 4.4: Get project detail flow](#step-4.4-get-project-detail-flow)   
+[Step 4.4: Get project detail flow](#step-4-4-get-project-detail-flow)   
 
-[Step 4.5: Get project issues flow](#step-4.5-get-project-issues-flow)   
+[Step 4.5: Get project issues flow](#step-4-5-get-project-issues-flow)   
 
-[Step 4.6: Get project members flow](#step-4.6-get-project-members-flow)   
+[Step 4.6: Get project members flow](#step-4-6-get-project-members-flow)   
 
-[Step 4.7: Get role detail flow](#step-4.7-get-role-detail-flow)   
+[Step 4.7: Get role detail flow](#step-4-7-get-role-detail-flow)   
 
-[Step 4.8: Get roles flow](#step-4.8-get-roles-flow)   
+[Step 4.8: Get roles flow](#step-4-8-get-roles-flow)   
 
-[Step 4.9: Get user detail flow](#step-4.9-get-user-detail-flow)   
+[Step 4.9: Get user detail flow](#step-4-9-get-user-detail-flow)   
 
-[Step 4.10: Get users flow](#step-4.10-get-users-flow)   
+[Step 4.10: Get users flow](#step-4-10-get-users-flow)   
 
 [Step 5: Add an Object to XML transformer](#step-5-add-an-object-to-xml-transformer)    
 
@@ -125,11 +125,11 @@ Add two Global Elements.
 
 
 
-*           **Name:** Enter a name you prefer.
-*           **Username (Optional):** Enter your Redmine username.
-*           **Password (Optional):** Enter your Redmine password.
-*           **Uri:** Enter the URL of your Redmine instance.
-*           **Api Access Key:** Enter the access key of your Redmine.instance.
+           **Name:** Enter a name you prefer.
+           **Username (Optional):** Enter your Redmine username.
+           **Password (Optional):** Enter your Redmine password.
+           **Uri:** Enter the URL of your Redmine instance.
+           **Api Access Key:** Enter the access key of your Redmine.instance.
 
 
 
