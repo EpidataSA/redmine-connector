@@ -34,14 +34,14 @@ public class ConnectionManagementStrategy {
 	private RedmineClient client;
 	
     /**
-     * Configurable
+     * Enter the URI of your Redmine instance.
      */
     @Configurable
 	@Placement(group = "Connection")    
     private String uri;
 
     /**
-     * Configurable
+     * Enter the access key of your Redmine instance.
      */
     @Configurable
     @Placement(group = "Connection")    
@@ -94,7 +94,8 @@ public class ConnectionManagementStrategy {
 	
 	/**
 	 * Connect
-	 * 
+	 * @param username     the user login user
+     * @param password		the user login pass
 	 * @throws ConnectionException
 	 */
 	@Connect

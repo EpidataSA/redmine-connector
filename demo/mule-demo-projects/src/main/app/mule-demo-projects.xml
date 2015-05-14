@@ -11,7 +11,7 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/>
-    <redmine:config-type name="Redmine_Configuration"   doc:name="Redmine: Configuration type strategy" apiAccessKey="7513fa5acffa66604a8736a7cc2d8d2dad110118" uri="http://192.168.11.243/redmine/" password="epipass" username="connector"/>
+    <redmine:config-type name="Redmine_Configuration"   doc:name="Redmine: Configuration type strategy" apiAccessKey="7513fa5acffa66604a8736a7cc2d8d2dad110118" uri="http://qa.epidata.com.ar/redmine" password="epipass" username="connector"/>
     <flow name="getAvailableProjects">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/projects" doc:name="HTTP"/>
         <redmine:get-available-projects config-ref="Redmine_Configuration" doc:name="Redmine"/>
