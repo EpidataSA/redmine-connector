@@ -6,21 +6,35 @@
 
 [Step 2: Create Demo project](#step-2-create-demo-project)   
 
-[Step 3: Add Global Elements](#step3)  
+[Step 3: Add Global Elements](#step3-add-global-elements)  
 
-[Step 4: Create a New Flow](#step4)   
+[Step 4: Create a New Flow](#step4-create-a-new-flow)   
 
-[Step 4.1. Get available properties flow](#step4.1)   
+[Step 4.1: Get available properties flow](#step4.1-get-available-properties-flow)   
 
-[Step 5: Add an Object to XML transformer](#step5)    
+[Step 4.2: Get group detail flow](#step4.2-get-group-detail-flow)   
 
-[Step 6: Run Demo project](#step6)      
+[Step 4.3: Get groups flow](#step4.3-get-groups-flow)   
+
+[Step 4.4: Get project detail flow](#step4.4-get-project-detail-flow)   
+
+[Step 4.5: Get project issues flow](#step4.5-get-project-issues-flow)   
+
+[Step 4.6: Get project members flow](#step4.6-get-project-members-flow)   
+
+[Step 4.7: Get role detail flow](#step4.7-get-role-detail-flow)   
+
+[Step 4.8: Get roles flow](#step4.8-get-roles-flow)   
+
+[Step 4.9: Get user detail flow](#step4.9-get-user-detail-flow)   
+
+[Step 4.10: Get users flow](#step4.10-get-users-flow)   
+
+[Step 5: Add an Object to XML transformer](#step5-add-an-object-to-xml-transformer)    
+
+[Step 6: Run Demo project](#step6-run-demo-project)      
 
 [Other Resources](#other-resources)    
-
-
-
-
 
 ### Purpose
 
@@ -160,11 +174,154 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
+
 *       Select **Get Available Projects** in the **Operation** configuration. This operation will get a collection of all the project of the Redmine instance configured previously.
 
 ![Get Available Projects](images/Step4-1-1.png)
 
-The Follow the [Step 5](#step5) and [Step 6](#step6) to show the data in XML format and run the project.
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
+
+
+### Step 4.2: Get group detail flow.
+
+
+
+*       Select **Get Group Detail** in the **Operation** configuration. This operation will return an object of the group especified by the group Id of the Redmine instance configured previously. Note that you must set a group Id to get the group detail and this must correspond to an existing group Id in the instance, else the request send and error message notifing that the source was not found.
+
+![Get Group Detail](images/Step4-2-1.png)
+
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
+
+
+### Step 4.3: Get groups flow.
+
+
+
+*       Select **Get Groups** in the **Operation** configuration. This operation will get a collection of all the groups of the Redmine instance configured previously.
+
+
+
+![Get Groups](images/Step4-3-1.png)
+
+
+
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
+
+
+### Step 4.4: Get project detail flow.
+
+
+
+
+*       Select **Get Project Detail** in the **Operation** configuration. This operation will return an object of the project especified by the project key of the Redmine instance configured previously. Note that you must set a project key to get the project detail and this must correspond to an existing project key in the instance, else the request send and error message notifing that the source was not found.
+
+
+
+![Get Project Detail](images/Step4-4-1.png)
+
+
+
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
+
+
+### Step 4.5: Get project issues flow.
+
+
+
+*       Select **Get Project Issues** in the **Operation** configuration. This operation will return a collection of the issues of an existing project especified by the project key of the Redmine instance configured previously. Note that you must set a project key to get the project detail and this must correspond to an existing project key in the instance, else the request send and error message notifing that the source was not found.
+
+
+
+![Get Project Issues](images/Step4-5-1.png)
+
+
+
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
+
+### Step 4.6: Get project members flow.
+
+
+
+*       Select **Get Project Members** in the **Operation** configuration. This operation will return a collection of the members involved in existing project especified by the project key of the Redmine instance configured previously. Note that you must set a project key to get the project detail and this must correspond to an existing project key in the instance, else the request send and error message notifing that the source was not found.
+
+
+
+![Get Project Members](images/Step4-6-1.png)
+
+
+
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
+
+
+### Step 4.7: Get role detail flow.
+
+
+
+*       Select **Get Role Detail** in the **Operation** configuration. This operation will return an object of the role especified by the role ID of the Redmine instance configured previously. Note that you must set a role ID to get the role detail and this must correspond to an existing role in the instance, else the request send and error message notifing that the source was not found.
+
+
+
+![Get Role Detail](images/Step4-7-1.png)
+
+
+
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
+
+
+### Step 4.8: Get roles flow.
+
+
+
+*       Select **Get Roles** in the **Operation** configuration. This operation will get a collection of all the roles of the Redmine instance configured previously.
+
+
+
+![Get Roles](images/Step4-8-1.png)
+
+
+
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
+
+
+### Step 4.9: Get user detail flow.
+
+
+
+
+*       Select **Get User Detail** in the **Operation** configuration. This operation will return an object of the user especified by the user ID of the Redmine instance configured previously. Note that you must set a user ID to get the user detail and this must correspond to an existing user in the instance, else the request send and error message notifing that the source was not found.
+
+
+
+![Get User Detail](images/Step4-9-1.png)
+
+
+
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
+
+
+### Step 4.10: Get users flow.
+
+
+
+*       Select **Get Users** in the **Operation** configuration. This operation will get a collection of all the users of the Redmine instance configured previously.
+
+
+
+![Get Users](images/Step4-10-1.png)
+
+
+
+*   Follow the [Step 5](#step5-add-an-object-to-xml-transformer) and [Step 6](##step6-run-demo-project) to show the data in XML format and run the project.
+
 
 
 
