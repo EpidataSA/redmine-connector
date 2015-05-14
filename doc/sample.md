@@ -2,21 +2,21 @@
 
 [Prerequisites](#prerequisites)  
 
-[Step 1: Create Box.com Developer account ](#step-1-create-boxcom-developer-account)    
+[Step 1: Install Redmine Connector](#step-1-install-redmine-***REMOVED***)    
 
-[Step 2: Install Mule Box Connector from Update Site](#step-2-install-mule-box-***REMOVED***-from-update-site)   
+[Step 2: Create Demo project](#step-2-create-demo-project)   
 
-[Step 3: Create Demo Project](#step3)  
+[Step 3: Add Global Elements](#step3)  
 
-[Step 4: Create a new flow](#step4)   
+[Step 4: Create a New Flow](#step4)   
 
-[Step 4.1. Get available properties flow.](#step4.1)   
+[Step 4.1. Get available properties flow](#step4.1)   
 
 [Step 5: Add an Object to XML transformer](#step5)    
 
 [Step 6: Run Demo project](#step6)      
 
-[Other Resources](#other)    
+[Other Resources](#other-resources)    
 
 
 
@@ -107,7 +107,9 @@ Add two Global Elements.
 
 
 
-*     In the **general** tab, set the Redmine Configuration type strategy parameters according to your Redmine account configuration:
+*       In the **general** tab, set the Redmine Configuration type strategy parameters according to your Redmine account configuration:
+
+
 
 *           **Name:** Enter a name you prefer.
 *           **Username (Optional):** Enter your Redmine username.
