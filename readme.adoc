@@ -1,6 +1,6 @@
-----
-= Redmine Anypoint™ Connector
- ---
+
+== Redmine Anypoint™ Connector
+ 
 The Anypoint™ Connector for Redmine allows Mule applications to retrieve and manipulate data from a Redmine project using a common integration interface known as web services.
 
 == Supported Mule runtime versions
