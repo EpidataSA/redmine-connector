@@ -70,7 +70,7 @@ Because this is a ***REMOVED*** in the beta version, you can download the source
 
 * Click to accept terms and conditions of the product, then click **Finish**.
 
-* Click **Restart Now** to complete the installation. After you install the ***REMOVED*** and restart Studio, the PeopleSoft ***REMOVED*** is available in the palette in the Connectors category.
+* Click **Restart Now** to complete the installation. After you install the ***REMOVED*** and restart Studio, the Redmine ***REMOVED*** is available in the palette in the Connectors category.
 
 
 ### Step 2: Create Demo project
@@ -125,11 +125,13 @@ Add two Global Elements.
 
 
 
-           **Name:** Enter a name you prefer.
-           **Username (Optional):** Enter your Redmine username.
-           **Password (Optional):** Enter your Redmine password.
-           **Uri:** Enter the URL of your Redmine instance.
-           **Api Access Key:** Enter the access key of your Redmine.instance.
+Field | Description
+------------ | -------------
+**Name:** | Enter a name you prefer.
+**Username (Optional):** | Enter your Redmine username.
+**Password (Optional):** | Enter your Redmine password.
+**Uri:** | Enter the URL of your Redmine instance.
+**Api Access Key:** | Enter the access key of your Redmine.instance.
 
 
 
