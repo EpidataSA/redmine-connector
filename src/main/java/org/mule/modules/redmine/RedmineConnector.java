@@ -47,7 +47,7 @@ public class RedmineConnector {
     /**
 	 * Gets a list of available projects.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-available-projects}
 	 *
 	 * @return Collection of Project
@@ -65,7 +65,7 @@ public class RedmineConnector {
     /**
 	 * Gets a list of issues for a given project.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-project-issues}
 	 *
 	 * @param projectKey
@@ -86,7 +86,7 @@ public class RedmineConnector {
     /**
 	 * Gets a project detail.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-project-detail}
 	 *
 	 * @param projectKey
@@ -107,7 +107,7 @@ public class RedmineConnector {
     /**
 	 * Gets a list of members of a given project.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-project-members}
 	 *
 	 * @param projectKey
@@ -131,7 +131,7 @@ public class RedmineConnector {
     /**
 	 * Gets a list of users.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-users}
 	 *
 	 * @return Collection of User
@@ -149,7 +149,7 @@ public class RedmineConnector {
     /**
 	 * Gets a detail for a given user.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-user-detail}
 	 *
 	 * @param userId
@@ -170,7 +170,7 @@ public class RedmineConnector {
     /**
 	 * Gets a list of roles.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-roles}
 	 *
 	 * @return Collection of Role
@@ -188,7 +188,7 @@ public class RedmineConnector {
     /**
 	 * Gets a detail for a given role.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-role-detail}
 	 *
 	 * @param roleId
@@ -209,7 +209,7 @@ public class RedmineConnector {
     /**
 	 * Gets a list of groups.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-groups}
 	 *
 	 * @return Collection of Group
@@ -227,7 +227,7 @@ public class RedmineConnector {
     /**
 	 * Gets a detail for a given group.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:get-group-detail}
 	 *
 	 * @param groupId
@@ -248,7 +248,7 @@ public class RedmineConnector {
 	/**
 	 * Creates a new issue for a given project with a given project Id, subject, description, priority Id, status Id, status name, User asignee, category Id, version Id, parent Id, start and due date, a done ratio and a estimated time.
 	 *
-	 * {@sample.xml ../../../doc/redmine-***REMOVED***.xml.sample
+	 * {@sample.xml ../../../doc/redmine-connector.xml.sample
 	 * redmine:create-issue}
 	 *
 	 * @param projectKey

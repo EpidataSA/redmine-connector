@@ -13,9 +13,9 @@ The Anypoint™ Connector for Redmine allows Mule applications to retrieve and m
 
 ### Installation 
 
-For beta ***REMOVED***s you can download the source code and build it with devkit to find it available on your local repository. Then you can add it to Studio.
+For beta connectors you can download the source code and build it with devkit to find it available on your local repository. Then you can add it to Studio.
 
-For released ***REMOVED***s you can download them from the update site in Studio. Open MuleStudio, go to Help → Install New Software and select MuleStudio Cloud Connectors Update Site where you’ll find all avaliable ***REMOVED***s.
+For released connectors you can download them from the update site in Studio. Open MuleStudio, go to Help → Install New Software and select MuleStudio Cloud Connectors Update Site where you’ll find all avaliable connectors.
 
 ### Usage
 
@@ -26,7 +26,7 @@ For information about usage our documentation below.
 
 [Prerequisites](#prerequisites)  
 
-[Step 1: Install Redmine Connector](#step-1-install-redmine-***REMOVED***)    
+[Step 1: Install Redmine Connector](#step-1-install-redmine-connector)    
 
 [Step 2: Create Demo project](#step-2-create-demo-project)   
 
@@ -66,7 +66,7 @@ For information about usage our documentation below.
 
 
 
-This document provides detailed instructions on how to install Redmine ***REMOVED*** and demonstrates how to build and run simple demo application that uses this ***REMOVED***.
+This document provides detailed instructions on how to install Redmine connector and demonstrates how to build and run simple demo application that uses this connector.
 
 
 
@@ -80,17 +80,17 @@ In order to build and run this project you'll need:
 
 * [Anypoint Studio](https://www.mulesoft.com/platform/mule-studio).
 
-*  Java 7: Redmine ***REMOVED*** does not work unless you are using Java 1.7.0_x as your JRE. 
+*  Java 7: Redmine connector does not work unless you are using Java 1.7.0_x as your JRE. 
 
 * Web browser.
 
-*  A project configuration in Redmine: Configuring the Redmine ***REMOVED*** requires configuring a Project configured in Redmine, and provide the valid credentials to set the connection strategy of this ***REMOVED***: an URI and API access key. As optional parameters, you can set the username and the password to access the Redmine instance.
+*  A project configuration in Redmine: Configuring the Redmine connector requires configuring a Project configured in Redmine, and provide the valid credentials to set the connection strategy of this connector: an URI and API access key. As optional parameters, you can set the username and the password to access the Redmine instance.
 
 
 
 ### Compatibility
 
-Redmine ***REMOVED*** is compatible with:
+Redmine connector is compatible with:
 
 
 Application/Service | Versión
@@ -103,13 +103,13 @@ Java | 1.7.0_x
 ### Step 1: Install Redmine Connector
 
 
-Because this is a ***REMOVED*** in the beta version, you can download the source code cloning the source code from:  [GitHub Repository](https://github.com/EpidataSA/redmine-***REMOVED***.git) and build it with Anypoint Connector DevKit to find it available on your local repository. Then you can add it to Anypoint Studio following the next steps:
+Because this is a connector in the beta version, you can download the source code cloning the source code from:  [GitHub Repository](https://github.com/EpidataSA/redmine-connector.git) and build it with Anypoint Connector DevKit to find it available on your local repository. Then you can add it to Anypoint Studio following the next steps:
 
-* In **Anypoint Studio**, to import an existing ***REMOVED*** project, click **File \> Import \> Anypoint Studio \> Anypoint Connector Project from External Location**, browse the path location where you have the root directory for the Redmine Connector and complete the wizard to locate and import the project.
+* In **Anypoint Studio**, to import an existing connector project, click **File \> Import \> Anypoint Studio \> Anypoint Connector Project from External Location**, browse the path location where you have the root directory for the Redmine Connector and complete the wizard to locate and import the project.
 
 * Click to accept terms and conditions of the product, then click **Finish**.
 
-* Click **Restart Now** to complete the installation. After you install the ***REMOVED*** and restart Studio, the Redmine ***REMOVED*** is available in the palette in the Connectors category.
+* Click **Restart Now** to complete the installation. After you install the connector and restart Studio, the Redmine connector is available in the palette in the Connectors category.
 
 
 ### Step 2: Create Demo project
@@ -191,7 +191,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*       Set the **HTTP Endpoint** ***REMOVED*** configuration with the global property previously configured and write a path for the URL of this endpoint and accept the default values of the other settings: 
+*       Set the **HTTP Endpoint** connector configuration with the global property previously configured and write a path for the URL of this endpoint and accept the default values of the other settings: 
 
 ![HTTP Endpoint](doc/images/Step4-2.png)
 
@@ -203,13 +203,13 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-*       Click it to show ***REMOVED*** properties and select **Redmine_Configuration_type_strategy** in **Connector Configuration** drop-down.
+*       Click it to show connector properties and select **Redmine_Configuration_type_strategy** in **Connector Configuration** drop-down.
 
 ![Redmine Connector Configuration](doc/images/Step4-4.png)
 
 
 
-*       We need to select an operation for this ***REMOVED***, we start showing you an example of each operation of this ***REMOVED*** using the configuration defined before.
+*       We need to select an operation for this connector, we start showing you an example of each operation of this connector using the configuration defined before.
 
 ### Step 4.1. Get available properties flow.
 
@@ -484,6 +484,6 @@ doneRatio	|	(Optional). The percent of the done ratio for the new issue.
 
 For more information on:
 
-- Mule AnyPoint™ ***REMOVED***s, please visit [http://www.mulesoft.org/***REMOVED***s](http://www.mulesoft.org/***REMOVED***s)
+- Mule AnyPoint™ connectors, please visit [http://www.mulesoft.org/connectors](http://www.mulesoft.org/connectors)
 
 - Mule platform and how to build Mule apps, please visit [http://www.mulesoft.org/documentation/display/current/Home](http://www.mulesoft.org/documentation/display/current/Home)

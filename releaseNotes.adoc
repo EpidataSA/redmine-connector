@@ -17,7 +17,7 @@
 - Support Resources
 
 === Compatibility
-The Redmine ***REMOVED*** is compatible with:
+The Redmine connector is compatible with:
 
 |===
 |Application/Service|Version
@@ -31,7 +31,7 @@ The Redmine ***REMOVED*** is compatible with:
 === Features
 
 .Version 1.0 Public Beta Features and Functionality
-In this first versión, Redmine ***REMOVED*** allows you to get information from a Redmine instance such as the available projects in the instance, 
+In this first versión, Redmine connector allows you to get information from a Redmine instance such as the available projects in the instance, 
 for a given project you can get the issues asociated, the members of the project and the details of the especified project. You can also create a new issue in the project.
 
 in addition, you can obtain information from the users in the instance, you can get the user details, the roles asociated to this user, the detail of a role.

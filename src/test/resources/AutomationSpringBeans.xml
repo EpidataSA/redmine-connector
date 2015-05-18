@@ -20,49 +20,49 @@
 
 <!--createIssue-->
 <util:map id="createIssueTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="projectKey" value="22"/>
- <entry key="subject" value="Connector Testing: Creating new Issue"/>
- <entry key="description" value="Connector Testing: Description for the new Issue"/>
- <entry key="priorityId" value="4"/>
- <entry key="statusId" value="1"/>
- <entry key="statusName" value="New"/>
- <entry key="dueDate" value="02/01/2015"/>
- <entry key="startDate" value="01/01/2015"/>
+ <entry key="projectKey" value="${createIssue.projectKey}"/>
+ <entry key="subject" value="${createIssue.subject}"/>
+ <entry key="description" value="${createIssue.description}"/>
+ <entry key="priorityId" value="${createIssue.priorityId}"/>
+ <entry key="statusId" value="${createIssue.statusId}"/>
+ <entry key="statusName" value="${createIssue.statusName}"/>
+ <entry key="dueDate" value="${createIssue.dueDate}"/>
+ <entry key="startDate" value="${createIssue.startDate}"/>
  </util:map> 
 <!--getAvailableProjects-->
 <util:map id="getAvailableProjectsTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
  </util:map>
 <!--getProjectIssues-->
 <util:map id="getProjectIssuesTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="projectKey" value="22"/>
+ <entry key="projectKey" value="${getProjectIssues.projectKey}"/>
     </util:map>
 <!--getProjectDetail-->
 <util:map id="getProjectDetailTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="projectKey" value="73"/>
+ <entry key="projectKey" value="${getProjectDetail.projectKey}"/>
     </util:map>
 <!--getProjectMembers-->
 <util:map id="getProjectMembersTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="projectKey" value="73"/>
+ <entry key="projectKey" value="${getProjectMembers.projectKey}"/>
     </util:map>
 <!--getUsers-->
 <util:map id="getUsersTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
  </util:map>
 <!--getUserDetail-->
 <util:map id="getUserDetailTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="userId" value="15"/>
+ <entry key="userId" value="${getUserDetail.userId}"/>
     </util:map>
 <!--getRoles-->
 <util:map id="getRolesTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
  </util:map>
 <!--getRoleDetail-->
 <util:map id="getRoleDetailTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="roleId" value="3"/>
+ <entry key="roleId" value="${getRoleDetail.roleId}"/>
     </util:map>
 <!--getGroups-->
 <util:map id="getGroupsTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
  </util:map>
 <!--getGroupDetail-->
 <util:map id="getGroupDetailTestData" key-type="java.lang.String" map-class="java.util.HashMap" scope="prototype" value-type="java.lang.Object">
- <entry key="groupId" value="3"/>
+ <entry key="groupId" value="${getGroupDetail.groupId}"/>
     </util:map>
 </beans>
