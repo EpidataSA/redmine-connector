@@ -11,7 +11,7 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/>
-    <redmine:config-type name="Redmine_Configuration"   doc:name="Redmine: Configuration type strategy" apiAccessKey="" uri="" password="" username=""/>
+    <redmine:config-type name="Redmine_Configuration" doc:name="Redmine: Configuration type strategy" apiAccessKey="${redmine.apiAccessKey}" uri="${redmine.uri}" password="${redmine.password}" username="${redmine.username}"/>
         <flow name="userDetails">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/user-details" doc:name="HTTP"/>
         <redmine:get-user-detail config-ref="Redmine_Configuration" userId="15" doc:name="Redmine"/>
