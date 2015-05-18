@@ -11,35 +11,30 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/>
-    <redmine:config-type name="Redmine_Configuration"   doc:name="Redmine: Configuration type strategy" apiAccessKey="7513fa5acffa66604a8736a7cc2d8d2dad110118" uri="http://qa.epidata.com.ar/redmine" password="epipass" username="connector"/>
-    <flow name="getAvailableProjects">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/projects" doc:name="HTTP"/>
-        <redmine:get-available-projects config-ref="Redmine_Configuration" doc:name="Redmine"/>
-        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
-        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
-    </flow>
-    <flow name="projectDetail">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/project-detail" doc:name="HTTP"/>
-        <redmine:get-project-detail config-ref="Redmine_Configuration" projectKey="73" doc:name="Redmine"/>
-        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
-        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
-    </flow>
-    <flow name="projectIssues">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/project-issues" doc:name="HTTP"/>
-        <redmine:get-project-issues config-ref="Redmine_Configuration" projectKey="73" doc:name="Redmine"/>
-        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
-        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
-    </flow>
-    <flow name="projectMembers">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/project-members" doc:name="HTTP"/>
-        <redmine:get-project-members config-ref="Redmine_Configuration" projectKey="73" doc:name="Redmine"/>
-        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
-        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
-    </flow>
-    <flow name="createIssue">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/create-issue" doc:name="HTTP"/>
-        <redmine:create-issue config-ref="Redmine_Configuration" description="Demo: Creating a new issue" projectKey="22" statusName="New" subject="Deme: New Issue" priorityId="4" statusId="1" doc:name="Redmine" dueDate="09/09/2014" startDate="08/09/2014"/>
+    <redmine:config-type name="Redmine_Configuration"   doc:name="Redmine: Configuration type strategy" apiAccessKey="" uri="" password="" username=""/>
+        <flow name="userDetails">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/user-details" doc:name="HTTP"/>
+        <redmine:get-user-detail config-ref="Redmine_Configuration" userId="15" doc:name="Redmine"/>
         <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
         <logger level="INFO" doc:name="Logger"/>
     </flow>
+    <flow name="users">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/users" doc:name="HTTP"/>
+        <redmine:get-users config-ref="Redmine_Configuration" doc:name="Redmine"/>
+        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="roles">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/roles" doc:name="HTTP"/>
+        <redmine:get-roles config-ref="Redmine_Configuration" doc:name="Redmine"/>
+        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="roleDetail">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/role-detail" doc:name="HTTP"/>
+        <redmine:get-role-detail config-ref="Redmine_Configuration" roleId="3" doc:name="Redmine"/>
+        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+    </flow>
+
 </mule>
