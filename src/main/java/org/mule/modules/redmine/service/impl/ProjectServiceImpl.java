@@ -15,6 +15,7 @@ import java.util.List;
 import org.mule.modules.redmine.service.ProjectService;
 
 import com.taskadapter.redmineapi.IssueManager;
+import com.taskadapter.redmineapi.NotAuthorizedException;
 import com.taskadapter.redmineapi.RedmineException;
 import com.taskadapter.redmineapi.bean.Issue;
 import com.taskadapter.redmineapi.bean.IssueCategory;
@@ -75,51 +76,55 @@ public class ProjectServiceImpl extends BaseServiceImpl implements
 			Integer versionId, Integer parentId, String startDate,
 			String dueDate, Float estimatedTime, Integer doneRatio)
 			throws RedmineException {
-		Issue issueToCreate = IssueFactory.createWithSubject(subject);
-		IssueManager issueManager = this.manager.getIssueManager();
-		Project project = this.manager.getProjectManager().getProjectByKey(
-				projectKey);
-		
-		// Obtaining version
-		Version version = VersionFactory.create(versionId);
-		
-		// Obtaining category 
-		IssueCategory category = IssueCategoryFactory.create(categoryId);
-		
-		// Obtaining assignee
-		User assignee = UserFactory.create(assigneeId);
-
-		// startDate and dueDate from String to Date
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-
-		Date dateStartDate = null;
-		Date dateDueDate = null;
 		try {
-			dateStartDate = formatter.parse(startDate);
-		} catch (ParseException e1) {
-			e1.printStackTrace();
-		}
-		try {
-			dateDueDate = formatter.parse(dueDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+			Issue issueToCreate = IssueFactory.createWithSubject(subject);
+			IssueManager issueManager = this.manager.getIssueManager();
+			Project project = this.manager.getProjectManager().getProjectByKey(
+					projectKey);
+			
+			// Obtaining version
+			Version version = VersionFactory.create(versionId);
+			
+			// Obtaining category 
+			IssueCategory category = IssueCategoryFactory.create(categoryId);
+			
+			// Obtaining assignee
+			User assignee = UserFactory.create(assigneeId);
+	
+			// startDate and dueDate from String to Date
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	
+			Date dateStartDate = null;
+			Date dateDueDate = null;
+			try {
+				dateStartDate = formatter.parse(startDate);
+			} catch (ParseException e1) {
+				e1.printStackTrace();
+			}
+			try {
+				dateDueDate = formatter.parse(dueDate);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+	
+			issueToCreate.setProject(project);
+			issueToCreate.setDescription(description);
+			issueToCreate.setPriorityId(priorityId);
+			issueToCreate.setStatusId(statusId);
+			issueToCreate.setStatusName(statusName);
+			issueToCreate.setAssignee(assignee);
+			issueToCreate.setCategory(category);
+			issueToCreate.setTargetVersion(version);
+			issueToCreate.setParentId(parentId);
+			issueToCreate.setStartDate(dateStartDate);
+			issueToCreate.setDueDate(dateDueDate);
+			issueToCreate.setEstimatedHours(estimatedTime);
+			issueToCreate.setDoneRatio(doneRatio);
 
-		issueToCreate.setProject(project);
-		issueToCreate.setDescription(description);
-		issueToCreate.setPriorityId(priorityId);
-		issueToCreate.setStatusId(statusId);
-		issueToCreate.setStatusName(statusName);
-		issueToCreate.setAssignee(assignee);
-		issueToCreate.setCategory(category);
-		issueToCreate.setTargetVersion(version);
-		issueToCreate.setParentId(parentId);
-		issueToCreate.setStartDate(dateStartDate);
-		issueToCreate.setDueDate(dateDueDate);
-		issueToCreate.setEstimatedHours(estimatedTime);
-		issueToCreate.setDoneRatio(doneRatio);
-
-		Issue createdIssue = issueManager.createIssue(issueToCreate);
-		return createdIssue;
+			Issue createdIssue = issueManager.createIssue(issueToCreate);
+			return createdIssue;
+		} catch (NotAuthorizedException e) {
+			throw new NotAuthorizedException("Not valid credentials for this operation");
+		}
 	}
 }
