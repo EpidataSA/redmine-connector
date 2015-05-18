@@ -22,7 +22,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
 
 	@Override
 	public Collection<User> getUsers() throws RedmineException{
-		return this.manager.getUserManager().getUsers();
+			return this.manager.getUserManager().getUsers();
 	}
 
 	@Override
