@@ -22,8 +22,9 @@ import com.taskadapter.redmineapi.bean.Role;
 import com.taskadapter.redmineapi.bean.User;
 
 /**
- * Anypoint Connector
- *
+ * Redmine is a free and open source, web-based project management and issue tracking tool. 
+ * It allows users to manage multiple projects and associated subprojects.
+ * 
  * @author MuleSoft, Inc.
  */
 @Connector(name="redmine", schemaVersion = "1.0", friendlyName="Redmine", minMuleVersion = "3.6")
@@ -282,11 +283,20 @@ public class RedmineConnector {
 	 * @throws RedmineConnectorException if there is a problem in the execution
 	 */
 	@Processor
-	public Issue createIssue(String projectKey, String subject,
-			@Optional String description, Integer priorityId, Integer statusId,
-			String statusName, @Optional Integer assigneeId, @Optional Integer categoryId,
-			@Optional Integer versionId, @Optional Integer parentId, String startDate, String dueDate,
-			@Optional Float estimatedTime, @Optional Integer doneRatio) throws RedmineConnectorException {
+	public Issue createIssue(String projectKey,
+							  String subject,						
+							  @Optional String description,
+							  Integer priorityId, 
+							  Integer statusId,
+							  String statusName,
+							  @Optional Integer assigneeId,
+							  @Optional Integer categoryId,
+							  @Optional Integer versionId,
+							  @Optional Integer parentId,
+							  String startDate,
+							  String dueDate,
+							  @Optional Float estimatedTime,
+							  @Optional Integer doneRatio) throws RedmineConnectorException {
 		try {
 			return connectionStrategy.getClient().createIssue(projectKey, subject, description, priorityId, statusId, statusName, assigneeId, categoryId, versionId, parentId, startDate, dueDate, estimatedTime, doneRatio);
 		} catch (RedmineException ex) {
