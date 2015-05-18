@@ -220,6 +220,12 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 ![Get Available Projects](doc/images/Step4-1-1.png)
 
+
+
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */projects* as your path configuration.
+
+
+
 *   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
@@ -231,6 +237,11 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 *       Select **Get Group Detail** in the **Operation** configuration. This operation will return an object of the group especified by the group Id of the Redmine instance configured previously. Note that you must set a group Id to get the group detail and this must correspond to an existing group Id in the instance, else the request send and error message notifing that the source was not found.
 
 ![Get Group Detail](doc/images/Step4-2-1.png)
+
+
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */group-detail* as your path configuration.
+
+
 
 *   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
@@ -245,6 +256,10 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 ![Get Groups](doc/images/Step4-3-1.png)
+
+
+
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */groups* as your path configuration.
 
 
 
@@ -265,6 +280,10 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */project-detail* as your path configuration.
+
+
+
 *   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
@@ -280,6 +299,8 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 ![Get Project Issues](doc/images/Step4-5-1.png)
 
 
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */project-issues* as your path configuration.
+
 
 *   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
@@ -293,6 +314,10 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 ![Get Project Members](doc/images/Step4-6-1.png)
+
+
+
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */project-members* as your path configuration.
 
 
 
@@ -312,6 +337,10 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */role-detail* as your path configuration.
+
+
+
 *   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
@@ -325,6 +354,10 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 ![Get Roles](doc/images/Step4-8-1.png)
+
+
+
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */roles* as your path configuration.
 
 
 
@@ -345,6 +378,10 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */user-detail* as your path configuration.
+
+
+
 *   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
 
@@ -358,6 +395,10 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 ![Get Users](doc/images/Step4-10-1.png)
+
+
+
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */users* as your path configuration.
 
 
 
@@ -392,6 +433,15 @@ doneRatio	|	(Optional). The percent of the done ratio for the new issue.
 
 ![Create new Issue](doc/images/Step4-11-1.png)
 
+
+
+*		Select the HTTP Endpoint in your canvas editor, then in **Basic Settings**, set */create-issue* as your path configuration.
+
+
+*   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
+
+
+
 ### Step 5: Add an Object to XML transformer
 
 
@@ -399,6 +449,7 @@ doneRatio	|	(Optional). The percent of the done ratio for the new issue.
 *       Add **Object to XML** transformer to the flow by dragging it from the palette. It will show the payload of the flow in XML format.
 
 ![Object to XML](doc/images/Step5-1.png)
+
 
 ### Step 6: Run Demo project
 
