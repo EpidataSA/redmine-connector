@@ -30,6 +30,8 @@
 
 [Step 4.10: Get users flow](#step-4-10-get-users-flow)   
 
+[Step 4.11: Create Issue flow](#step-4-11-get-users-flow)   
+
 [Step 5: Add an Object to XML transformer](#step-5-add-an-object-to-xml-transformer)    
 
 [Step 6: Run Demo project](#step-6-run-demo-project)      
@@ -59,6 +61,19 @@ In order to build and run this project you'll need:
 * Web browser.
 
 *  A project configuration in Redmine: Configuring the Redmine ***REMOVED*** requires configuring a Project configured in Redmine, and provide the valid credentials to set the connection strategy of this ***REMOVED***: an URI and API access key. As optional parameters, you can set the username and the password to access the Redmine instance.
+
+
+
+### Compatibility
+
+Redmine ***REMOVED*** is compatible with:
+
+
+Application/Service | Versión
+------------ | -------------
+Redmine API | 2.6.0 or higher
+Mule Runtime | 3.6 or higher
+Java | 1.7.0_x
 
 
 ### Step 1: Install Redmine Connector
@@ -326,6 +341,32 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
+### Step 4.11: Create Issue flow.
+
+
+
+*       Select **Create Issue** in the **Operation** configuration. This operation will create a new issue in a project especified by the project Key the Redmine instance configured previously. This method also will returns the new issue created. You need to set the following parameters:
+
+
+
+Field | Description
+------------ | -------------
+projectKey	|	Key for the project needed to set the new issue.
+subject	|	Subject for the new issue to create.
+description	|	(Optional). A description of the new issue.
+priorityId	|	Id for set the priority for the new issue to create.
+statusId	|	Id for the status for the new issue to create.
+statusName	|	Name for the status for the new issue to create.
+assigneeId	|	(Optional). Id for for the user needed to set the assignee.
+categoryId	|	(Optional). Id for the category needed to set the issue category.
+versionId	|	(Optional). Id for the version needed to set the version in the new issue.
+parentId	|	(Optional). Id for the parent needed to set the parent in the new issue.
+startDate	|	The Date for the start date of the new issue.
+dueDate	|	The Date for the start date of the new issue, this date need must be set after the start date.
+estimatedTime	|	(Optional). Estimated time of the new issue.
+doneRatio	|	(Optional). The percent of the done ratio for the new issue.
+
+![Create new Issue](images/Step4-11-1.png)
 
 ### Step 5: Add an Object to XML transformer
 
