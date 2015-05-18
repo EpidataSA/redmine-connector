@@ -1,0 +1,52 @@
+= Redmine Connector Release Notes
+
+== References:
+
+	Redmine is a free and open source, web-based project management and issue tracking tool. It allows users to manage multiple projects and associated subprojects.
+
+== Redmine Connector Release Notes
+=== Version 1.0
+=== Release date: April 16, 2015
+
+=== Contents
+
+- Compatibility
+- Features
+- Fixed in this Release
+- Known Issues
+- Support Resources
+
+=== Compatibility
+The Redmine ***REMOVED*** is compatible with:
+
+|===
+|Application/Service|Version
+|Redmine|2.6.0 or higher
+|Mule Runtime|3.6.x
+|Anypoint Studio|5.1.2 or higher
+|Java JRE|1.7.0_x
+|===
+
+
+=== Features
+
+.Version 1.0 Public Beta Features and Functionality
+In this first versión, Redmine ***REMOVED*** allows you to get information from a Redmine instance such as the available projects in the instance, 
+for a given project you can get the issues asociated, the members of the project and the details of the especified project. You can also create a new issue in the project.
+
+in addition, you can obtain information from the users in the instance, you can get the user details, the roles asociated to this user, the detail of a role.
+
+=== Fixed in this Release
+
+None.
+
+=== Known Issues
+
+None.
+
+=== Support Resources
+
+- Learn how to Install and Configure Anypoint Connectors in Anypoint Studio.
+- Access MuleSoft’s MuleForge forum to pose questions and get help from Mule’s broad community of users.
+- To access MuleSoft’s expert support team, subscribe to Mule ESB Enterprise and log in to MuleSoft’s Customer Portal.
+
