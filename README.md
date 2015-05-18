@@ -1,3 +1,27 @@
+
+### Redmine Anypoint™ Connector
+ 
+The Anypoint™ Connector for Redmine allows Mule applications to retrieve and manipulate data from a Redmine project using a common integration interface known as web services.
+
+### Supported Mule runtime versions
+
+3.6 or higher
+
+### Redmine API supported versions
+
+2.6.0 or higher
+
+### Installation 
+
+For beta connectors you can download the source code and build it with devkit to find it available on your local repository. Then you can add it to Studio.
+
+For released connectors you can download them from the update site in Studio. Open MuleStudio, go to Help → Install New Software and select MuleStudio Cloud Connectors Update Site where you’ll find all avaliable connectors.
+
+### Usage
+
+For information about usage our documentation below.
+
+
 [Purpose](#purpose)  
 
 [Prerequisites](#prerequisites)  
@@ -97,7 +121,7 @@ Because this is a connector in the beta version, you can download the source cod
 *    Type **Demo** as a project name, accept default values on this screen of project creation wizard and click **Finish**.
 
 
-![Create Demo project](images/Step3-1.png)
+![Create Demo project](doc/images/Step3-1.png)
 
 
 ### Step 3: Add Global Elements   
@@ -116,7 +140,7 @@ Add two Global Elements.
 
 
 
-![Add HTTP Listener](images/Step3-2.png)
+![Add HTTP Listener](doc/images/Step3-2.png)
 
 
 
@@ -124,7 +148,7 @@ Add two Global Elements.
 
 
 
-![Configure HTTP Listener](images/Step3-3.png)
+![Configure HTTP Listener](doc/images/Step3-3.png)
 
 
 
@@ -132,7 +156,7 @@ Add two Global Elements.
 
 
 
-![Add Redmine: Configuration type strategy](images/Step3-4.png)
+![Add Redmine: Configuration type strategy](doc/images/Step3-4.png)
 
 
 
@@ -163,25 +187,25 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-![New Flow](images/Step4-1.png)
+![New Flow](doc/images/Step4-1.png)
 
 
 
 *       Set the **HTTP Endpoint** connector configuration with the global property previously configured and write a path for the URL of this endpoint and accept the default values of the other settings: 
 
-![HTTP Endpoint](images/Step4-2.png)
+![HTTP Endpoint](doc/images/Step4-2.png)
 
 
 
 *       Add **Redmine Connector** to the flow by dragging it from the palette. 
 
-![Redmine Connector](images/Step4-3.png)
+![Redmine Connector](doc/images/Step4-3.png)
 
 
 
 *       Click it to show connector properties and select **Redmine_Configuration_type_strategy** in **Connector Configuration** drop-down.
 
-![Redmine Connector Configuration](images/Step4-4.png)
+![Redmine Connector Configuration](doc/images/Step4-4.png)
 
 
 
@@ -194,7 +218,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 *       Select **Get Available Projects** in the **Operation** configuration. This operation will get a collection of all the project of the Redmine instance configured previously.
 
-![Get Available Projects](images/Step4-1-1.png)
+![Get Available Projects](doc/images/Step4-1-1.png)
 
 *   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
@@ -206,7 +230,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 *       Select **Get Group Detail** in the **Operation** configuration. This operation will return an object of the group especified by the group Id of the Redmine instance configured previously. Note that you must set a group Id to get the group detail and this must correspond to an existing group Id in the instance, else the request send and error message notifing that the source was not found.
 
-![Get Group Detail](images/Step4-2-1.png)
+![Get Group Detail](doc/images/Step4-2-1.png)
 
 *   Follow the [Step 5](#step-5-add-an-object-to-xml-transformer) and [Step 6](##step-6-run-demo-project) to show the data in XML format and run the project.
 
@@ -220,7 +244,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-![Get Groups](images/Step4-3-1.png)
+![Get Groups](doc/images/Step4-3-1.png)
 
 
 
@@ -237,7 +261,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-![Get Project Detail](images/Step4-4-1.png)
+![Get Project Detail](doc/images/Step4-4-1.png)
 
 
 
@@ -253,7 +277,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-![Get Project Issues](images/Step4-5-1.png)
+![Get Project Issues](doc/images/Step4-5-1.png)
 
 
 
@@ -268,7 +292,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-![Get Project Members](images/Step4-6-1.png)
+![Get Project Members](doc/images/Step4-6-1.png)
 
 
 
@@ -284,7 +308,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-![Get Role Detail](images/Step4-7-1.png)
+![Get Role Detail](doc/images/Step4-7-1.png)
 
 
 
@@ -300,7 +324,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-![Get Roles](images/Step4-8-1.png)
+![Get Roles](doc/images/Step4-8-1.png)
 
 
 
@@ -317,7 +341,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-![Get User Detail](images/Step4-9-1.png)
+![Get User Detail](doc/images/Step4-9-1.png)
 
 
 
@@ -333,7 +357,7 @@ This action drops an HTTP Listener in a new flow. You can change the name of thi
 
 
 
-![Get Users](images/Step4-10-1.png)
+![Get Users](doc/images/Step4-10-1.png)
 
 
 
@@ -366,7 +390,7 @@ dueDate	|	The Date for the start date of the new issue, this date need must be s
 estimatedTime	|	(Optional). Estimated time of the new issue.
 doneRatio	|	(Optional). The percent of the done ratio for the new issue.
 
-![Create new Issue](images/Step4-11-1.png)
+![Create new Issue](doc/images/Step4-11-1.png)
 
 ### Step 5: Add an Object to XML transformer
 
@@ -374,7 +398,7 @@ doneRatio	|	(Optional). The percent of the done ratio for the new issue.
 
 *       Add **Object to XML** transformer to the flow by dragging it from the palette. It will show the payload of the flow in XML format.
 
-![Object to XML](images/Step5-1.png)
+![Object to XML](doc/images/Step5-1.png)
 
 ### Step 6: Run Demo project
 
@@ -382,20 +406,20 @@ doneRatio	|	(Optional). The percent of the done ratio for the new issue.
 
 *     In **Package Explorer** window, right Click on your mule project **demo \> Run As/Mule Application**.
 
-![Run Demo project](images/Step6-1.png)
+![Run Demo project](doc/images/Step6-1.png)
 
 
 
 *     Check the console to see when the application starts. If the application starts succesfully, you will see that the application was deployed as you can see in this image, else check the flow configuration again following the previously steps:
 
-![Console](images/Step6-2.png)
+![Console](doc/images/Step6-2.png)
 
 
 
 *     Finally check the results in your favorite browser, opening an URL according to the path defined in the HTTP Endpoints of the operations defined previously: 
 **http://localhost:8081/<path of the operation>**. The final flow XML should look like that:
 
-![Get Available Projects on Browser](images/Step6-3.png)
+![Get Available Projects on Browser](doc/images/Step6-3.png)
 
 
 
