@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:redmine="http://www.mulesoft.org/schema/mule/redmine" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/redmine http://www.mulesoft.org/schema/mule/redmine/current/mule-redmine.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/>
+    <redmine:config-type name="Redmine_Configuration"   doc:name="Redmine: Configuration type strategy" apiAccessKey="7513fa5acffa66604a8736a7cc2d8d2dad110118" uri="http://192.168.11.243/redmine/" password="epipass" username="connector"/>
+        <flow name="userDetails">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/user-details" doc:name="HTTP"/>
+        <redmine:get-user-detail config-ref="Redmine_Configuration" userId="15" doc:name="Redmine"/>
+        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="users">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/users" doc:name="HTTP"/>
+        <redmine:get-users config-ref="Redmine_Configuration" doc:name="Redmine"/>
+        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="roles">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/roles" doc:name="HTTP"/>
+        <redmine:get-roles config-ref="Redmine_Configuration" doc:name="Redmine"/>
+        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="roleDetail">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/role-detail" doc:name="HTTP"/>
+        <redmine:get-role-detail config-ref="Redmine_Configuration" roleId="3" doc:name="Redmine"/>
+        <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+    </flow>
+
+</mule>
