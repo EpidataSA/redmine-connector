@@ -4,7 +4,7 @@
 
 
 <!-- BEGIN_INCLUDE(redmine:create-issue) -->
-    <redmine:create-issue projectKey="#[map-payload:projectKey]" subject="#[map-payload:subject]" description="#[map-payload:description]" priorityId="#[map-payload:priorityId]" statusId="#[map-payload:statusId]" statusName="#[map-payload:statusName]" assigneeId="[map-payload:assigneeId]" categoryId="[map-payload:categoryId]" versionId="[map-payload:versionId]" parentId="[map-payload:parentId]" startDate="[map-payload:startDate]" dueDate="[map-payload:dueDate]" estimatedTime="[map-payload:estimatedTime]" doneRatio="[map-payload:doneRatio]" config-ref="Redmine"/>
+    <redmine:create-issue projectKey="#[map-payload:projectKey]" subject="#[map-payload:subject]" description="#[map-payload:description]" priorityId="#[map-payload:priorityId]" statusId="#[map-payload:statusId]" statusName="#[map-payload:statusName]" assigneeId="#[map-payload:assigneeId]" categoryId="#[map-payload:categoryId]" versionId="#[map-payload:versionId]" parentId="#[map-payload:parentId]" startDate="#[map-payload:startDate]" dueDate="#[map-payload:dueDate]" estimatedTime="#[map-payload:estimatedTime]" doneRatio="#[map-payload:doneRatio]" config-ref="Redmine"/>
 <!-- END_INCLUDE(redmine:create-issue) -->
 
 <!-- BEGIN_INCLUDE(redmine:get-available-projects) -->
