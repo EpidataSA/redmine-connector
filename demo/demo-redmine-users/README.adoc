@@ -36,7 +36,7 @@ users : Run the demo project and with in the browser hit - **http://localhost:80
 
 roles : Run the demo project and with in the browser hit - **http://localhost:8081/roles**, the result would be a collection of the roles of the Redmine instance configured previously following the specified list in XML format.
 
-roleDetail - Run the demo project and with in the browser hit - **http://localhost:8081/project-members**, the result would be an object of the role especified by the role Id of the configured Redmine instance following the specified role in XML format.
+roleDetail - First, by clicking on the Redmine connector, set the role Id to obtain the role details, you can see a valid role Id by running the previous flow example. Then run the demo project and with in the browser hit - **http://localhost:8081/project-members**, the result would be an object of the role especified by the role Id of the configured Redmine instance following the specified role in XML format.
 
 == Summary
 
