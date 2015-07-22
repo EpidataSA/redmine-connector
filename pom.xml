@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.mule.modules</groupId>
     <artifactId>redmine-connector</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>mule-module</packaging>
     <name>Mule Redmine Anypoint Connector</name>
     
@@ -32,7 +32,20 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 				</configuration>
-			</plugin>		
+			</plugin>
+			<plugin>
+            	<groupId>org.mule.certification</groupId>
+            	<artifactId>project-structure-validation</artifactId>
+            	<version>1.0.4</version>
+            	<executions>
+                	<execution>
+                    	<phase>package</phase>
+                    	<goals>
+                        	<goal>validate</goal>
+                    	</goals>
+                	</execution>
+            	</executions>
+        	</plugin>
 		</plugins>
 	</build>
 	    
