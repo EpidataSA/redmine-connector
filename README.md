@@ -96,7 +96,7 @@ Redmine connector is compatible with:
 Application/Service | Versión
 ------------ | -------------
 Redmine API | 2.6.0 or higher
-Mule Runtime | 3.6 or higher
+Mule Runtime | 3.5.0, 3.5.2, 3.6.0, 3.5.1, 3.6.1, 3.7.0
 Java | 1.7.0_x
 
 
