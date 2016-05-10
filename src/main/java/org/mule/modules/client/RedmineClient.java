@@ -1,8 +1,8 @@
 /**
- * (c) 2003-2015 MuleSoft, Inc. The software in this package is published under the terms of the CPAL v1.0 license,
- * a copy of which has been included with this distribution in the LICENSE.md file.
+ * (c) 2003-2016 MuleSoft, Inc. The software in this package is
+ * published under the terms of the CPAL v1.0 license, a copy of which
+ * has been included with this distribution in the LICENSE.md file.
  */
-
 package org.mule.modules.client;
 
 import java.util.Collection;
@@ -21,10 +21,14 @@ import com.taskadapter.redmineapi.bean.User;
 
 public class RedmineClient {
 
-	// Project service for Redmine
+	/**
+	 *  Project service for Redmine
+ 	 */
 	private ProjectService projectService;
 
-	// User service for Redmine
+	/**
+	 * User service for Redmine
+ 	 */
 	private UserService userService;
 
 	public RedmineClient(String uri, String apiAccessKey) {
@@ -61,7 +65,6 @@ public class RedmineClient {
 		return projectService.getMembers(projectKey);
 	}
 
-	//
 	public Issue createIssue(String projectKey, String subject,
 			String description, Integer priorityId, Integer statusId,
 			String statusName, Integer assigneeId, Integer categoryId,

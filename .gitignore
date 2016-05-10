@@ -1,36 +1,33 @@
-/.classpath
-/.settings
-/.project
-/.jruby
-/*.iml
-/*.ipr
-/*.iws
-/target
-.idea
-.DS_Store
+# Maven
+target/
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
 .classpath
+.settings/
 .project
-Demo/demo-redmine-projects/.classpath
-Demo/demo-redmine-projects/.settings
-Demo/demo-redmine-projects/.project
-Demo/demo-redmine-projects/.jruby
-Demo/demo-redmine-projects/*.iml
-Demo/demo-redmine-projects/*.ipr
-Demo/demo-redmine-projects/*.iws
-Demo/demo-redmine-projects/target
-Demo/demo-redmine-projects.idea
-Demo/demo-redmine-projects.DS_Store
-Demo/demo-redmine-projects.classpath
-Demo/demo-redmine-users.project
-Demo/demo-redmine-users/.classpath
-Demo/demo-redmine-users/.settings
-Demo/demo-redmine-users/.project
-Demo/demo-redmine-users/.jruby
-Demo/demo-redmine-users/*.iml
-Demo/demo-redmine-users/*.ipr
-Demo/demo-redmine-users/*.iws
-Demo/demo-redmine-users/target
-Demo/demo-redmine-users.idea
-Demo/demo-redmine-users.DS_Store
-Demo/demo-redmine-users.classpath
-Demo/demo-redmine-users.project
+.factorypath
+
+# Mule Studio
+.studio
+demo/**/src/test/resources/*
+demo/**/catalog
+
+# OS X
+.DS_Store
+
+# Windows
+
+# Linux
+bin/
+
+# Credential file for individual developer
+# which should NOT be committed
+automation-credentials.properties
+interop-testdata-override.xml
+interop-testdata.xml
