@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<mule-project xmlns="http://www.mulesoft.com/tooling/project" runtimeId="org.mule.tooling.server.3.6.1.ee" schemaVersion="3.5.0.0">
+<mule-project xmlns="http://www.mulesoft.com/tooling/project" runtimeId="org.mule.tooling.server.3.7.3.ee" schemaVersion="5.3.0.0">
     <name>demo-redmine-projects</name>
     <description></description>
+    <muleExtension name="Redmine" qualifier="org.mule.tooling.ui.contribution.redmine.3.7.0"/>
 </mule-project>

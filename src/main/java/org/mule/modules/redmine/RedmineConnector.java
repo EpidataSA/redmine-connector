@@ -1,19 +1,16 @@
 /**
- * (c) 2003-2015 MuleSoft, Inc. The software in this package is published under the terms of the CPAL v1.0 license,
- * a copy of which has been included with this distribution in the LICENSE.md file.
+ * (c) 2003-2016 MuleSoft, Inc. The software in this package is
+ * published under the terms of the CPAL v1.0 license, a copy of which
+ * has been included with this distribution in the LICENSE.md file.
  */
-
 package org.mule.modules.redmine;
 
 import java.util.Collection;
-import org.mule.api.annotations.ConnectionStrategy;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.param.Optional;
-import org.mule.modules.redmine.exception.RedmineConnectorException;
-import org.mule.modules.redmine.strategy.ConnectionManagementStrategy;
+import org.mule.modules.redmine.exception.RedmineException;
 
-import com.taskadapter.redmineapi.RedmineException;
 import com.taskadapter.redmineapi.bean.Group;
 import com.taskadapter.redmineapi.bean.Issue;
 import com.taskadapter.redmineapi.bean.Membership;
@@ -23,27 +20,25 @@ import com.taskadapter.redmineapi.bean.User;
 
 /**
  * Redmine is a free and open source, web-based project management and issue tracking tool. 
- * It allows users to manage multiple projects and associated subprojects.
+ * It allows users to manage multiple projects and associated sub-projects.
  * 
  * @author MuleSoft, Inc.
  */
-@Connector(name="redmine", schemaVersion = "1.0", friendlyName="Redmine", minMuleVersion = "3.6")
+@Connector(name="redmine", schemaVersion = "1.0", friendlyName="Redmine", minMuleVersion = "3.7")
 public class RedmineConnector {
-    
-    @ConnectionStrategy
-    ConnectionManagementStrategy connectionStrategy;
 
-    
-    public ConnectionManagementStrategy getConnectionStrategy() {
-        return connectionStrategy;
-    }
+	/** The connector's global configuration. **/
+	@org.mule.api.annotations.Config
+	private Config config;
 
-    public void setConnectionStrategy(ConnectionManagementStrategy connectionStrategy) {
-        this.connectionStrategy = connectionStrategy;
-    }
-    
-	//Project processors    
-    
+	public Config getConfig() {
+		return config;
+	}
+
+	public void setConfig(Config config) {
+		this.config = config;
+	}
+
     /**
 	 * Gets a list of available projects.
 	 *
@@ -51,14 +46,14 @@ public class RedmineConnector {
 	 * redmine:get-available-projects}
 	 *
 	 * @return Collection of Project
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */		
 	@Processor
-	public Collection<Project> getAvailableProjects() throws RedmineConnectorException {
+	public Collection<Project> getAvailableProjects() throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getAvailableProjects();
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getAvailableProjects();
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}			
 	}
 	
@@ -72,14 +67,14 @@ public class RedmineConnector {
 	 *            key for the project needed to get the issues.
 	 *
 	 * @return Collection of Issue
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */
 	@Processor
-	public Collection<Issue> getProjectIssues(String projectKey) throws RedmineConnectorException {
+	public Collection<Issue> getProjectIssues(String projectKey) throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getIssues(projectKey);
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getIssues(projectKey);
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}		
 	}
 	
@@ -93,14 +88,14 @@ public class RedmineConnector {
 	 *            key for the project needed to get the detail.
 	 *
 	 * @return Project
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */	
 	@Processor
-	public Project getProjectDetail(String projectKey) throws RedmineConnectorException {
+	public Project getProjectDetail(String projectKey) throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getProjectDetail(projectKey);
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getProjectDetail(projectKey);
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}			
 	}
 	
@@ -114,20 +109,17 @@ public class RedmineConnector {
 	 *            key for the project needed to get the issues.
 	 *            
 	 * @return Collection of Membership
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */		
 	@Processor
-	public Collection<Membership> getProjectMembers(String projectKey) throws RedmineConnectorException {
+	public Collection<Membership> getProjectMembers(String projectKey) throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getMembers(projectKey);
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getMembers(projectKey);
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}		
 	}
 
-	
-	//User methods
-	
     /**
 	 * Gets a list of users.
 	 *
@@ -135,14 +127,14 @@ public class RedmineConnector {
 	 * redmine:get-users}
 	 *
 	 * @return Collection of User
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */		
 	@Processor
-	public Collection<User> getUsers() throws RedmineConnectorException {
+	public Collection<User> getUsers() throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getUsers();
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getUsers();
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}		
 	}
 
@@ -156,14 +148,14 @@ public class RedmineConnector {
 	 *            id for the user needed to get the detail.
 	 *            
 	 * @return User
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */		
 	@Processor
-	public User getUserDetail(Integer userId) throws RedmineConnectorException {
+	public User getUserDetail(Integer userId) throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getUserDetail(userId);
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getUserDetail(userId);
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}			
 	}
 
@@ -174,14 +166,14 @@ public class RedmineConnector {
 	 * redmine:get-roles}
 	 *
 	 * @return Collection of Role
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */		
 	@Processor
-	public Collection<Role> getRoles() throws RedmineConnectorException {
+	public Collection<Role> getRoles() throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getRoles();
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getRoles();
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}			
 	}
 
@@ -195,14 +187,14 @@ public class RedmineConnector {
 	 *            id for the role needed to get the detail.
 	 *            
 	 * @return Role
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */		
 	@Processor
-	public Role getRoleDetail(Integer roleId) throws RedmineConnectorException {
+	public Role getRoleDetail(Integer roleId) throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getRoleDetail(roleId);
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getRoleDetail(roleId);
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}			
 	}
 
@@ -213,14 +205,14 @@ public class RedmineConnector {
 	 * redmine:get-groups}
 	 *
 	 * @return Collection of Group
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */		
 	@Processor
-	public Collection<Group> getGroups() throws RedmineConnectorException {
+	public Collection<Group> getGroups() throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getGroups();
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getGroups();
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}
 	}
 
@@ -234,14 +226,14 @@ public class RedmineConnector {
 	 *            id for the group needed to get the detail.
 	 *            
 	 * @return Collection of Group
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */		
 	@Processor
-	public Group getGroupDetail(Integer groupId) throws RedmineConnectorException {		
+	public Group getGroupDetail(Integer groupId) throws RedmineException {
 		try {
-			return connectionStrategy.getClient().getGroupDetail(groupId);
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().getGroupDetail(groupId);
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}		
 	}
 	
@@ -280,7 +272,7 @@ public class RedmineConnector {
 	 * @param doneRatio
 	 * 			The percent of the done ratio for the new issue.
 	 * @return Issue
-	 * @throws RedmineConnectorException if there is a problem in the execution
+	 * @throws RedmineException if there is a problem in the execution
 	 */
 	@Processor
 	public Issue createIssue(String projectKey,
@@ -296,11 +288,11 @@ public class RedmineConnector {
 							  String startDate,
 							  String dueDate,
 							  @Optional Float estimatedTime,
-							  @Optional Integer doneRatio) throws RedmineConnectorException {
+							  @Optional Integer doneRatio) throws RedmineException {
 		try {
-			return connectionStrategy.getClient().createIssue(projectKey, subject, description, priorityId, statusId, statusName, assigneeId, categoryId, versionId, parentId, startDate, dueDate, estimatedTime, doneRatio);
-		} catch (RedmineException ex) {
-			throw new RedmineConnectorException(ex);
+			return config.getClient().createIssue(projectKey, subject, description, priorityId, statusId, statusName, assigneeId, categoryId, versionId, parentId, startDate, dueDate, estimatedTime, doneRatio);
+		} catch (com.taskadapter.redmineapi.RedmineException ex) {
+			throw new RedmineException(ex);
 		}		
 	}
 	
