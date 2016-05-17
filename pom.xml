@@ -3,9 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>mule-module</packaging>
 
+    <name>Mule Redmine Connector</name>
     <groupId>org.mule.modules</groupId>
     <artifactId>redmine-connector</artifactId>
-    <name>Mule Redmine Connector</name>
     <version>1.0.1-SNAPSHOT</version>
     
     <parent>
